@@ -2,20 +2,27 @@ package com.luznoporto.pe.models;
 
 import java.util.Objects;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="")
+@Table(name="tb_locatario")
 public class Locatario {
 
     @Id
+    @Column(name="loca_CNPJ_locatario_pk")
     private String cnpj;
+    
+    @Column(name="loca_nm_fantasia")
     private String nomeFantasia;
+    
+    @Column(name="loca_razao_social")
     private String razaoSocial;
-
+    
     //Deverá virar uma entidade.
+    @Column(name="loca_resp_tecnico")
     private String nomeResponsavel;
 
 
