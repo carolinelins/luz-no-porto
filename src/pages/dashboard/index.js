@@ -60,7 +60,7 @@ export default function Dashboard() {
         <Container maxWidth="lg" className={classes.container}>
           <Grid container spacing={3}>
             
-          <Grafico1 />
+          {/* <Grafico1 /> */}
           <Grafico2 />
             
           </Grid>
