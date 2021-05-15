@@ -3,11 +3,26 @@ package com.luznoporto.pe.models;
 import java.util.Date;
 import java.util.Objects;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "tb_medicao")
 public class Medicao {
 
+	@Id
+	@Column(name = "med_id_medicao_pk")
     private int id;
-    private Date inicioMedicao;
+	
+	@Column(name = "med_dt_ini_medicao")
+	private Date inicioMedicao;
+	
+	@Column(name = "med_dt_fin_medicao")
     private Date fimMedicao;
+	
+	@Column(name = "med_vl_medicao")
     private Double valor;
 
     public Medicao(){}
@@ -67,6 +82,6 @@ public class Medicao {
                 ", inicioMedicao=" + inicioMedicao +
                 ", fimMedicao=" + fimMedicao +
                 ", valor=" + valor +
-                '}';
+                '}'+ "\n";
     }
 }

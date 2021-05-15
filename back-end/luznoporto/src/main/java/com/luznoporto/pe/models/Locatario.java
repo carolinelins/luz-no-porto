@@ -25,6 +25,7 @@ public class Locatario {
     @Column(name="loca_resp_tecnico")
     private String nomeResponsavel;
 
+    public Locatario() {}
 
     public Locatario(String cnpj, String nomeFantasia, String razaoSocial, String nomeResponsavel) {
         this.cnpj = cnpj;
