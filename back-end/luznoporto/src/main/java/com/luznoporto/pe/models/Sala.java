@@ -2,16 +2,31 @@ package com.luznoporto.pe.models;
 
 import java.util.Objects;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "tb_sala_predio")
 public class Sala {
 
+	@Id
+	@Column(name = "spr_id_sala_pk")
     private int id;
+	
+	@Column(name = "spr_nm")
     private String nome;
+	
+	@Column(name = "spr_ar_m2")
     private Double metragem;
-    private int andar;
+	
+	@Column(name = "spr_andar")
+    private String andar;
 
     public Sala(){}
 
-    public Sala(int id, String nome, Double metragem, int andar) {
+    public Sala(int id, String nome, Double metragem, String andar) {
         this.id = id;
         this.nome = nome;
         this.metragem = metragem;
@@ -38,11 +53,11 @@ public class Sala {
         this.metragem = metragem;
     }
 
-    public int getAndar() {
+    public String getAndar() {
         return andar;
     }
 
-    public void setAndar(int andar) {
+    public void setAndar(String andar) {
         this.andar = andar;
     }
 
