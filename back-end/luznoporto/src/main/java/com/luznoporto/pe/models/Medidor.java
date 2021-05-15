@@ -2,13 +2,25 @@ package com.luznoporto.pe.models;
 
 import java.util.Objects;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "tb_medidor")
 public class Medidor {
 
+	@Id
+	@Column(name = "mdd_id_medidor_pk")
     private int id;
+	
+	@Column(name = "mdd_ds_medidor")
     private String nome;
 
     //Por que nao um boolean?
     //fica mais facil validar
+	@Column(name="mdd_st_medidor")
     private char situacao;
 
     public Medidor(){}

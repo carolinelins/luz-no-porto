@@ -2,22 +2,32 @@ package com.luznoporto.pe.models;
 
 import java.util.Objects;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "tb_equipamento")
 public class Equipamento {
 
+	@Id
+	@Column(name = "equ_id_equip_pk")
     private int id;
+	
+	@Column(name = "equ_nm_equip")
     private String nome;
 
     //Por que nao um boolean?
     //fica mais facil validar
-    private Character situacao;
+    //private Character situacao;
 
     public  Equipamento(){}
 
-    public Equipamento(int id, String nome, Character situacao) {
+    public Equipamento(int id, String nome) {
         this.id = id;
         this.nome = nome;
-        this.situacao = situacao;
-    }
+   }
 
     public int getId() {
         return id;
@@ -29,14 +39,6 @@ public class Equipamento {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public Character getSituacao() {
-        return situacao;
-    }
-
-    public void setSituacao(Character situacao) {
-        this.situacao = situacao;
     }
 
     @Override
@@ -57,7 +59,6 @@ public class Equipamento {
         return "Equipamento{" +
                 "id=" + id +
                 ", nome='" + nome + '\'' +
-                ", situacao=" + situacao +
                 '}';
     }
 
