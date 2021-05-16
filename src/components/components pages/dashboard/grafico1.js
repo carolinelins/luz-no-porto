@@ -1,32 +1,110 @@
 import React from 'react';
-import { Chart } from "react-google-charts";
+import Chart from "react-apexcharts";
+
+export default class ApexChart1 extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+    
+      series: [{
+        name: 'Inflation',
+        data: [2.3, 3.1, 4.0, 10.1, 4.0, 3.6, 3.2, 2.3, 1.4, 0.8, 0.5, 0.2]
+      }],
+      options: {
+        chart: {
+          height: 250,
+          type: 'bar',
+        },
+        plotOptions: {
+          bar: {
+            borderRadius: 10,
+            dataLabels: {
+              position: 'top', // top, center, bottom
+            },
+          }
+        },
+        dataLabels: {
+          enabled: true,
+          formatter: function (val) {
+            return val + "%";
+          },
+          offsetY: -20,
+          style: {
+            fontSize: '12px',
+            colors: ["#304758"]
+          }
+        },
+        
+        xaxis: {
+          categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+          position: 'top',
+          axisBorder: {
+            show: false
+          },
+          axisTicks: {
+            show: false
+          },
+          crosshairs: {
+            fill: {
+              type: 'gradient',
+              gradient: {
+                colorFrom: '#D8E3F0',
+                colorTo: '#BED1E6',
+                stops: [0, 100],
+                opacityFrom: 0.4,
+                opacityTo: 0.5,
+              }
+            }
+          },
+          tooltip: {
+            enabled: true,
+          }
+        },
+        yaxis: {
+          axisBorder: {
+            show: false
+          },
+          axisTicks: {
+            show: false,
+          },
+          labels: {
+            show: false,
+            formatter: function (val) {
+              return val + "%";
+            }
+          }
+        
+        },
+        title: {
+          text: 'Monthly Inflation in Argentina, 2002',
+          floating: true,
+          offsetY: 330,
+          align: 'center',
+          style: {
+            color: '#444'
+          }
+        }
+      },
+    
+    
+    };
+  }
 
 
-function grafico1(){
-    return(
-        <Chart
-  width={'500px'}
-  height={'300px'}
-  chartType="Bar"
-  loader={<div>Loading Chart</div>}
-  data={[
-    ['Year', 'Sales', 'Expenses', 'Profit'],
-    ['2014', 1000, 400, 200],
-    ['2015', 1170, 460, 250],
-    ['2016', 660, 1120, 300],
-    ['2017', 1030, 540, 350],
-  ]}
-  options={{
-    // Material design options
-    chart: {
-      title: 'Company Performance',
-      subtitle: 'Sales, Expenses, and Profit: 2014-2017',
-    },
-  }}
-  // For tests
-  rootProps={{ 'data-testid': '2' }}
-/>
-    )
-}
 
-export default grafico1;
+  render() {
+    return (
+      
+
+
+<div id="chart">
+<Chart options={this.state.options} series={this.state.series} type="bar" height={350} width={350} />
+</div>
+
+ );
+        }
+      }
+
+      
+    

@@ -12,6 +12,8 @@ import Grid from '@material-ui/core/Grid';
 import MenuAdmin from '../../components/menu-admin';
 
 import Footer from '../../components/footer-admin'
+import Card1 from '../../components/components pages/dados/card1';
+import Card2 from '../../components/components pages/dados/card2';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -57,7 +59,8 @@ export default function Dados() {
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
           <Grid container spacing={3}>
-            <h1>Dados</h1>
+            <Card1 />
+            <Card2 />
           </Grid>
           <Box pt={4}>
             <Footer />
