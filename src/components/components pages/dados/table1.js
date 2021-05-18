@@ -1,7 +1,7 @@
 import React from 'react';
 import { Table } from 'reactstrap';
 
-const Card2 = (props) => {
+const Table1 = (props) => {
     return (
       <Table>
         <thead>
@@ -60,4 +60,4 @@ const Card2 = (props) => {
     );
   }
   
-  export default Card2;
+  export default Table1;
