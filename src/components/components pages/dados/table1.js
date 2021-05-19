@@ -1,9 +1,43 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Table } from 'reactstrap';
+import Api from '../../../api';
 
-const Table1 = (props) => {
+class Table1 extends Component {
+  state = {
+    medicoes: [],
+    
+  };
+
+
+  async componentDidMount() {
+    
+    const responseMedicao = await Api.get('/medicoes');
+   
+
+    
+    this.setState({ medicoes: responseMedicao.data});
+    
+  }
+
+  render() {
+    
+    const { medicoes } = this.state;
+    
+    
+
     return (
-      <Table>
+      <div>
+        
+
+        {/* <select>
+        {locatarios.map((locatario) => (
+          <option key={locatario.cnpj}>
+              {locatario.nomeFantasia}
+          </option>
+        ))}
+        </select> */}
+
+        <Table>
         <thead>
           <tr>
             <th>#</th>
@@ -17,19 +51,17 @@ const Table1 = (props) => {
         <tbody>
           <tr>
             <th scope="row">1</th>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
+          {medicoes.map((medicao) => (
+            <td key={medicao.id}>{medicao.inicioMedicao}</td>
+            ))}
           </tr>
           <tr>
             <th scope="row" width="10px">2</th>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
           </tr>
           <tr>
             <th scope="row">3</th>
@@ -57,7 +89,21 @@ const Table1 = (props) => {
           </tr>
         </tbody>
       </Table>
+
+
+       
+
+       
+         
+
+      </div>
+      
     );
   }
+}
+
+
+
+  
   
   export default Table1;

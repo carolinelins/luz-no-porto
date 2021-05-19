@@ -4,7 +4,8 @@ import Api from '../../../api';
 class SeleLocatario extends Component {
   state = {
     locatarios: [],
-    tiposEquipamentos: []
+    tiposEquipamentos: [],
+    localizacaoSalas: []
   };
 
   
@@ -12,18 +13,21 @@ class SeleLocatario extends Component {
     
     const response = await Api.get('/locatarios');
     const responseTiposEquipamentos = await Api.get('/tiposDeEquipamentos')
+    const responseLocalizacaoSalas = await Api.get('/salas')
     // console.log(response.data);
     // console.log(responseEquipamentos.data);
 
     
     this.setState({ locatarios: response.data});
     this.setState({tiposEquipamentos: responseTiposEquipamentos.data });
+    this.setState({localizacaoSalas: responseLocalizacaoSalas.data });
   }
 
   render() {
     
     const { locatarios } = this.state;
     const { tiposEquipamentos } = this.state;
+    const { localizacaoSalas } = this.state;
     
 
     return (
@@ -45,9 +49,21 @@ class SeleLocatario extends Component {
               {equipamento.nome}
           </option>
         ))}
-        
-
         </select>
+
+        <select>
+          <option>Todas</option>
+        {localizacaoSalas.map((sala) => (
+          <option key={sala.id}>
+              {sala.nome}
+          </option>
+        ))}
+        </select>
+          <label>De:</label>
+          <input type="date"></input>
+          <label>Até:</label>
+          <input type="date"></input>
+
       </div>
       
     );
