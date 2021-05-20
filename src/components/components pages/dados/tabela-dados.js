@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Table } from 'reactstrap';
 import Api from '../../../api';
 
-class Table1 extends Component {
+class TabelaDados extends Component {
   state = {
     medicoes: [],
   };
@@ -17,11 +17,11 @@ class Table1 extends Component {
     const { medicoes } = this.state;
 
     return (
-      <div>
-        <Table className="table-striped table-condensed table-responsive">
+      <div className="pr-1 pt-4 pl-4 pb-2 mx-auto">
+        <Table className="table-striped table-condensed table-responsive table-right">
           <thead>
-            <tr>
-              <th>id</th>
+            <tr className="text-center">
+              <th>Id</th>
               <th>Inicio Medição</th>
               <th>Fim Medição</th>
               <th>Consumo(kWh)</th>
@@ -30,10 +30,12 @@ class Table1 extends Component {
           <tbody>
             {medicoes.map((medicao) => (
               <tr>
-                <td key={medicao.id}>{medicao.id}</td>
-                <td>{medicao.inicioMedicao}</td>
-                <td>{medicao.fimMedicao}</td>
-                <td>{medicao.valor}</td>
+                <td className="text-right" key={medicao.id}>
+                  {medicao.id}
+                </td>
+                <td className="text-right">{medicao.inicioMedicao}</td>
+                <td className="text-right">{medicao.fimMedicao}</td>
+                <td className="text-center">{medicao.valor}</td>
               </tr>
             ))}
           </tbody>
@@ -43,4 +45,4 @@ class Table1 extends Component {
   }
 }
 
-export default Table1;
+export default TabelaDados;
