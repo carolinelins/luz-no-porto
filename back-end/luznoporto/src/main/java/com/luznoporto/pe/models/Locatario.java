@@ -1,10 +1,13 @@
 package com.luznoporto.pe.models;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -24,6 +27,9 @@ public class Locatario {
     //Deverá virar uma entidade.
     @Column(name="loca_resp_tecnico")
     private String nomeResponsavel;
+    
+   // @OneToMany
+    //private List<Sala> salas = new ArrayList<>();
 
     public Locatario() {}
 
@@ -66,7 +72,11 @@ public class Locatario {
         this.nomeResponsavel = nomeResponsavel;
     }
 
-    @Override
+//    public List<Sala> getSalas() {
+//		return salas;
+//	}
+
+	@Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;

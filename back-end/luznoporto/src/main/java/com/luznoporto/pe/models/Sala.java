@@ -5,6 +5,7 @@ import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -23,14 +24,18 @@ public class Sala {
 	
 	@Column(name = "spr_andar")
     private String andar;
+	
+	@Column(name = "spr_loca_CNPJ_locatario_pk_fk")
+	private String locatario;
 
     public Sala(){}
 
-    public Sala(int id, String nome, Double metragem, String andar) {
+    public Sala(int id, String nome, Double metragem, String andar, String locatario) {
         this.id = id;
         this.nome = nome;
         this.metragem = metragem;
         this.andar = andar;
+        this.locatario = locatario;
     }
 
     public int getId() {
@@ -60,8 +65,14 @@ public class Sala {
     public void setAndar(String andar) {
         this.andar = andar;
     }
+    
+    
 
-    @Override
+    public String getLocatario() {
+		return locatario;
+	}
+
+	@Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
