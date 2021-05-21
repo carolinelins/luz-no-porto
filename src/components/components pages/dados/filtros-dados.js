@@ -41,6 +41,7 @@ class FiltrosDados extends Component {
         <div>
           <label className="pr-3">Empresa: </label>
           <select>
+            <option>Todas</option>
             {locatarios.map((locatario) => (
               <option key={locatario.cnpj}>{locatario.nomeFantasia}</option>
             ))}
