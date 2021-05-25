@@ -1,0 +1,22 @@
+
+.local1 {
+    position: absolute;
+    top: 400px;
+}
+
+.filtro-local {
+    position: relative;
+    top: 330px;
+}
+
+.periodo1 {
+    position: absolute;
+    top: 450px;
+    
+}
+
+.filtro-periodo {
+    position: relative;
+    top: 380px;
+    right: 112px;
+}
