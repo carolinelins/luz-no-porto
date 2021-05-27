@@ -13,6 +13,8 @@ import MenuAdmin from '../../components/menu-admin';
 
 import Footer from '../../components/footer-admin'
 
+import GraficoEquipamento from '../../components/components pages/consumo/graficoEquipamento';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -56,7 +58,7 @@ export default function Consumo() {
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
           <Grid container spacing={3}>
-            <h1>Consumo</h1>
+            <GraficoEquipamento />
           </Grid>
           <Box pt={4}>
             <Footer />
