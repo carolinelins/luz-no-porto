@@ -12,8 +12,7 @@ class FiltrosDados extends Component {
     const response = await Api.get('/locatarios');
     const responseTiposEquipamentos = await Api.get('/tiposDeEquipamentos');
     const responseLocalizacaoSalas = await Api.get('/salas');
-    // console.log(response.data);
-    // console.log(responseEquipamentos.data);
+    
 
     this.setState({ locatarios: response.data });
     this.setState({ tiposEquipamentos: responseTiposEquipamentos.data });
@@ -21,9 +20,9 @@ class FiltrosDados extends Component {
   }
 
   render() {
-    const { locatarios } = this.state;
-    const { tiposEquipamentos } = this.state;
-    const { localizacaoSalas } = this.state;
+    let { locatarios } = this.state;
+    let { tiposEquipamentos } = this.state;
+    let { localizacaoSalas } = this.state;
 
     return (
       <div className="pl-5 pt-5">

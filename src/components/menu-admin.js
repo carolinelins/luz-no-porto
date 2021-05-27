@@ -111,7 +111,7 @@ export default function MenuAdmin(){
             <MenuIcon />
           </IconButton>
           <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
-            Dashboard
+            Luz no Porto
           </Typography>
           <IconButton color="inherit">
             <Badge color="secondary">
