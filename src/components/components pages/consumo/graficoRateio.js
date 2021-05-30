@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Chart from 'react-apexcharts'
 import api from '../../../api';
 
-class graficoRateio extends Component {
+class GraficoRateio extends Component {
    
     state = {
         equipamentos:[],
@@ -14,18 +14,12 @@ class graficoRateio extends Component {
         console.log(response.data);
     }
       
-        // 
-        // options: {
-          
-        // },
-      
-      
     
 
   
 
     render() {
-        const {equipamentos} = this.state
+        let {equipamentos} = this.state
     
         if(!equipamentos || equipamentos.length===0){
           return <h1>Erro no servidor</h1>
@@ -36,7 +30,11 @@ class graficoRateio extends Component {
 
     <div id="chart">
         <Chart 
-        options={{chart: {
+        options={{
+            series: [{
+                data:[equipamentos.map((value)=>value.id)]
+            }],
+            chart: {  
             type: 'bar',
             height: 350
           },
@@ -50,14 +48,12 @@ class graficoRateio extends Component {
             enabled: false
           },
           xaxis: {
-            categories: ['South Korea', 'Canada', 'United Kingdom', 'Netherlands', 'Italy', 'France', 'Japan',
-              'United States', 'China', 'Germany'
-            ],
+            categories: [equipamentos.map((value)=>value.nome)],
           }}}
         series={equipamentos.map((value)=>value.id)}
-        labels={equipamentos.map((value)=>value.nome)}
+        // labels={equipamentos.map((value)=>value.nome)}
         type="bar"
-        height={350}/>
+        height={350} width={300}/>
         </div>
 
 
@@ -66,7 +62,7 @@ class graficoRateio extends Component {
     }
 }
 
-  export default graficoRateio;
+  export default GraficoRateio;
 
 
 
@@ -79,10 +75,12 @@ class graficoRateio extends Component {
 //     constructor(props) {
 //       super(props);
 
+      
+
 //       this.state = {
       
 //         series: [{
-//           data: [400, 430, 448, 470, 540, 580, 690, 1100, 1200, 1380]
+//           data: [40, 430, 448, 470, 540, 580, 690, 1100, 1200, 1380]
 //         }],
 //         options: {
 //           chart: {
@@ -112,13 +110,17 @@ class graficoRateio extends Component {
   
 
 //     render() {
+        
 //       return (
         
 
 
-//   <div id="chart">
-// <Chart options={this.state.options} series={this.state.series} type="bar" height={350} />
-// </div>
+//         <div id="chart">
+//             <Chart options={this.state.options} 
+//             series={this.state.series}
+//             type="bar"
+//             height={350} />
+//         </div>
 
 
 

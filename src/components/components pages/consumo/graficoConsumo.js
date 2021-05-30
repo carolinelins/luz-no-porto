@@ -7,93 +7,60 @@
 // class graficoConsumo extends Component {
 //   constructor(props) {
 //     super(props);
+
+//     this.state = {
     
-    
-//       this.state = {
-//         series: [{
-//           name: 'XYZ MOTORS',
-//           data: dates
-//         }],
-//         options: {
-//           chart: {
-//             type: 'area',
-//             stacked: false,
-//             height: 350,
-//             zoom: {
-//               type: 'x',
-//               enabled: true,
-//               autoScaleYaxis: true
-//             },
-//             toolbar: {
-//               autoSelected: 'zoom'
-//             }
-//           },
-//           dataLabels: {
+//       series: [{
+//           name: "Desktops",
+//           data: [10, 41, 35, 51, 49, 62, 69, 91, 148]
+//       }],
+//       options: {
+//         chart: {
+//           height: 350,
+//           type: 'line',
+//           zoom: {
 //             enabled: false
-//           },
-//           markers: {
-//             size: 0,
-//           },
-//           title: {
-//             text: 'Stock Price Movement',
-//             align: 'left'
-//           },
-//           fill: {
-//             type: 'gradient',
-//             gradient: {
-//               shadeIntensity: 1,
-//               inverseColors: false,
-//               opacityFrom: 0.5,
-//               opacityTo: 0,
-//               stops: [0, 90, 100]
-//             },
-//           },
-//           yaxis: {
-//             labels: {
-//               formatter: function (val) {
-//                 return (val / 1000000).toFixed(0);
-//               },
-//             },
-//             title: {
-//               text: 'Price'
-//             },
-//           },
-//           xaxis: {
-//             type: 'datetime',
-//           },
-//           tooltip: {
-//             shared: false,
-//             y: {
-//               formatter: function (val) {
-//                 return (val / 1000000).toFixed(0)
-//               }
-//             }
 //           }
 //         },
-      
-      
-//       };
-//     }
-
-  
-
-//     render() {
-//       return (
-        
-
-
-//     <div id="chart">
-//       <Chart options={this.state.options}
-//       series={this.state.series}
-//       type="area" 
-//       height={350} />
-//     </div>
-
-
-
-//       );
-//     }
+//         dataLabels: {
+//           enabled: false
+//         },
+//         stroke: {
+//           curve: 'straight'
+//         },
+//         title: {
+//           text: 'Product Trends by Month',
+//           align: 'left'
+//         },
+//         grid: {
+//           row: {
+//             colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+//             opacity: 0.5
+//           },
+//         },
+//         xaxis: {
+//           categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'],
+//         }
+//       },
+    
+    
+//     };
 //   }
+
+
+
+//   render() {
+//     return (
+      
+
+// <div id="chart">
+// <Chart options={this.state.options} series={this.state.series} type="line" height={350} width={800} />
+// </div>
+
+
+//     );
+//   }
+// }
 
 
 
