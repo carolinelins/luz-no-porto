@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Api from '../../../api';
+import Button from '@material-ui/core/Button';
 
 class FiltrosDados extends Component {
   state = {
@@ -51,7 +52,6 @@ class FiltrosDados extends Component {
         <div className="pt-4">
           <label className="pr-3">Localização: </label>
           <select>
-            <option>Todas</option>
             {localizacaoSalas.map((sala) => (
               <option key={sala.id}>{sala.nome}</option>
             ))}
@@ -67,6 +67,10 @@ class FiltrosDados extends Component {
             ))}
           </select>
         </div>
+
+        <Button variant="contained" color="primary">
+          Consultar
+        </Button>
       </div>
     );
   }

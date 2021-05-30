@@ -14,6 +14,8 @@ import Footer from '../../components/footer-admin';
 import FiltrosDados from '../../components/components pages/dados/filtros-dados';
 
 import TabelaDados from '../../components/components pages/dados/tabela-dados';
+import Asynchronous from '../../components/components pages/dados/filtro-material-asynchronous';
+import ControllableStates from '../../components/components pages/dados/filtro-material-autocomplete';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -54,7 +56,11 @@ export default function Dados() {
         <Container maxWidth="lg" className={classes.container}>
           <h2>Dados Energeticos</h2>
           <Grid container>
-            <FiltrosDados className="col-sm-4" />
+            <div className="col-sm-4">
+              <ControllableStates />
+              <FiltrosDados />
+              <Asynchronous />
+            </div>
             <TabelaDados className="col-sm-8" />
           </Grid>
           <Box pt={4}>
