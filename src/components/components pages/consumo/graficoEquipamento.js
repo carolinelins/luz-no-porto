@@ -34,8 +34,11 @@ class GraficoEquipamento extends Component {
           options={ {
             // labels:[equipamentos.map((value)=>value.nome)],
                     chart: {
-                      labels:[equipamentos.map((value)=>value.nome)],
+                      // labels:[equipamentos.map((value)=>value.nome)],
                       type: 'donut',
+                    },
+                    xaxis: {
+                      type:'numeric'
                     },
                     responsive: [{
                       breakpoint: 480,
@@ -52,7 +55,7 @@ class GraficoEquipamento extends Component {
             series={equipamentos.map((value)=>value.id)}
             // labels={equipamentos.map((value)=>value.nome)}
             type="donut" 
-            width="380"  />
+            width="450"  />
       </div>  
     );
   }

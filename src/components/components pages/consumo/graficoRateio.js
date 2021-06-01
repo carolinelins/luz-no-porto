@@ -31,9 +31,9 @@ class GraficoRateio extends Component {
     <div id="chart">
         <Chart 
         options={{
-            series: [{
-                data:[equipamentos.map((value)=>value.id)]
-            }],
+            // series: [{
+            //     data:[equipamentos.map((value)=>value.id)]
+            // }],
             chart: {  
             type: 'bar',
             height: 350
@@ -50,10 +50,10 @@ class GraficoRateio extends Component {
           xaxis: {
             categories: [equipamentos.map((value)=>value.nome)],
           }}}
-        series={equipamentos.map((value)=>value.id)}
+        series={[{data:equipamentos.map((value)=>value.id)}]}
         // labels={equipamentos.map((value)=>value.nome)}
         type="bar"
-        height={350} width={300}/>
+        height={350} width={500}/>
         </div>
 
 
@@ -119,7 +119,7 @@ class GraficoRateio extends Component {
 //             <Chart options={this.state.options} 
 //             series={this.state.series}
 //             type="bar"
-//             height={350} />
+//             height={350} width={300} />
 //         </div>
 
 

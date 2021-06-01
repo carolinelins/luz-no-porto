@@ -1,67 +1,86 @@
-// import React, { Component } from 'react';
-// import Chart from 'react-apexcharts'
+import React, { Component } from 'react';
+import Chart from 'react-apexcharts'
+import api from '../../../api';
 
 
 
 
-// class graficoConsumo extends Component {
-//   constructor(props) {
-//     super(props);
 
-//     this.state = {
+class GraficoConsumo extends Component {
     
-//       series: [{
-//           name: "Desktops",
-//           data: [10, 41, 35, 51, 49, 62, 69, 91, 148]
-//       }],
-//       options: {
-//         chart: {
-//           height: 350,
-//           type: 'line',
-//           zoom: {
-//             enabled: false
-//           }
-//         },
-//         dataLabels: {
-//           enabled: false
-//         },
-//         stroke: {
-//           curve: 'straight'
-//         },
-//         title: {
-//           text: 'Product Trends by Month',
-//           align: 'left'
-//         },
-//         grid: {
-//           row: {
-//             colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
-//             opacity: 0.5
-//           },
-//         },
-//         xaxis: {
-//           categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'],
-//         }
-//       },
-    
-    
-//     };
-//   }
+        
+    state = {
+        equipamentos:[],
+    }
+    async componentDidMount(){
+        const response = await api.get('/tiposDeEquipamentos')
 
-
-
-//   render() {
-//     return (
+        this.setState({equipamentos: response.data});
+    }
+        
+        
       
+    
 
-// <div id="chart">
-// <Chart options={this.state.options} series={this.state.series} type="line" height={350} width={800} />
-// </div>
+      render() {
+
+        const {equipamentos} = this.state
+    
+        if(!equipamentos || equipamentos.length===0){
+          return <h1>Erro no servidor</h1>
+        }
+        console.log(equipamentos.map((value)=>value.id))
+        console.log(equipamentos.map((value)=>value.nome))
+        return (
+          
 
 
-//     );
-//   }
-// }
+    <div id="chart">
+        <Chart options={{
+            chart: {
+              type: 'area',
+              height: 320,
+              zoom: {
+                enabled: false
+              }
+            },
+            dataLabels: {
+              enabled: false
+            },
+            stroke: {
+              curve: 'straight'
+            },
+            
+            title: {
+              text: 'Fundamental Analysis of Stocks',
+              align: 'left'
+            },
+            subtitle: {
+              text: 'Price Movements',
+              align: 'left'
+            },
+            labels: equipamentos.map((value)=>value.id),
+            xaxis: {
+              type: 'datetime',
+            },
+            yaxis: {
+              opposite: true
+            },
+            legend: {
+              horizontalAlign: 'left'
+            }
+          }}
+          series= {[{
+            name: "STOCK ABC",
+            data: equipamentos.map((value)=>value.id)
+          }]}
+        type="area" 
+        height={350} />
+    </div>
+  
 
 
-
-//   export default graficoConsumo;
+        );
+      }
+    }
+  export default GraficoConsumo;
