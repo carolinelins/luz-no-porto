@@ -1,69 +1,82 @@
 import React, { Component } from 'react';
-import Chart from 'react-apexcharts'
+import Chart from 'react-apexcharts';
 import api from '../../../api';
 
 class GraficoEquipamento extends Component {
+  state = {
+    equipamentos: [],
+  };
+  async componentDidMount() {
+    const response = await api.get('/tiposDeEquipamentos');
 
-    state = {
-        equipamentos:[],
-    }
-    async componentDidMount(){
-        const response = await api.get('/tiposDeEquipamentos')
-
-        this.setState({equipamentos: response.data});
-    }
-    
-    
+    this.setState({ equipamentos: response.data });
+  }
 
   render() {
+    const { equipamentos } = this.state;
 
-    const {equipamentos} = this.state
-    
-    if(!equipamentos || equipamentos.length===0){
-      return <h1>Erro no servidor</h1>
+    if (
+      !equipamentos ||
+      equipamentos === undefined ||
+      equipamentos === null
+      // || equipamentos.length === 0
+    ) {
+      return <h1>Erro no servidor</h1>;
     }
-    console.log(equipamentos.map((value)=>value.id))
-    console.log(equipamentos.map((value)=>value.nome))
-    
+    console.log(
+      'map-id',
+      equipamentos.map((value) => value.id),
+    );
+    console.log(
+      'map-nome',
+      equipamentos.map((value) => value.nome),
+    );
 
     return (
-      
-      <div className="donut">
-        
-        <Chart 
-          options={ {
-            // labels:[equipamentos.map((value)=>value.nome)],
+      <div className="card bg-light text-dark m-3">
+        <div className="donut" className="card-body">
+          <Chart
+            options={{
+              chart: {
+                type: 'donut',
+              },
+              title: {
+                text: 'Dispositivos',
+                align: 'left',
+              },
+              subtitle: {
+                text: 'Porto Digital',
+                align: 'left',
+              },
+              // series: equipamentos.map((value) => value.id),
+              labels: equipamentos.map((value) => value.nome),
+              xaxis: {
+                type: 'numeric',
+              },
+              responsive: [
+                {
+                  breakpoint: 480,
+                  options: {
                     chart: {
-                      // labels:[equipamentos.map((value)=>value.nome)],
-                      type: 'donut',
+                      width: 200,
                     },
-                    xaxis: {
-                      type:'numeric'
+                    legend: {
+                      position: 'bottom',
                     },
-                    responsive: [{
-                      breakpoint: 480,
-                      options: {
-                        chart: {
-                          width: 200
-                        },
-                        legend: {
-                          position: 'bottom'
-                        }
-                      }
-                    }]
-                  }}
-            series={equipamentos.map((value)=>value.id)}
-            // labels={equipamentos.map((value)=>value.nome)}
-            type="donut" 
-            width="450"  />
-      </div>  
+                  },
+                },
+              ],
+            }}
+            series={equipamentos.map((value) => value.id)}
+            // labels={('pera', 'uva', 'maca', 'morango', 'limao', 'banana')}
+            type="donut"
+            width="450"
+          />
+        </div>
+      </div>
     );
   }
 }
-
-
-
-
 
 export default GraficoEquipamento;
 
@@ -72,7 +85,7 @@ export default GraficoEquipamento;
 //     super(props);
 
 //     this.state = {
-    
+
 //       series: [44, 55, 41, 17, 15],
 //       options: {
 //         chart: {
@@ -90,17 +103,12 @@ export default GraficoEquipamento;
 //           }
 //         }]
 //       },
-    
-    
+
 //     };
 //   }
 
-
-
 //   render() {
 //     return (
-      
-
 
 // <div id="chart">
 // <Chart options={this.state.options} series={this.state.series} type="donut" />
@@ -111,6 +119,3 @@ export default GraficoEquipamento;
 // }
 
 // export default ApexChart;
-
-
-
