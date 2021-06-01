@@ -52,11 +52,11 @@ class GraficoConsumo extends Component {
             },
             
             title: {
-              text: 'Fundamental Analysis of Stocks',
+              text: 'Consumo',
               align: 'left'
             },
             subtitle: {
-              text: 'Price Movements',
+              text: 'Porto Digital',
               align: 'left'
             },
             labels: equipamentos.map((value)=>value.id),
@@ -71,7 +71,7 @@ class GraficoConsumo extends Component {
             }
           }}
           series= {[{
-            name: "STOCK ABC",
+            name: equipamentos.map((value)=>value.nome),
             data: equipamentos.map((value)=>value.id)
           }]}
         type="area" 
