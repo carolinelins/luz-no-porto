@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "tb_equipamento")
 public class Equipamento {
@@ -18,6 +20,17 @@ public class Equipamento {
 	@Column(name = "equ_nm_equip")
     private String nome;
 
+	//mdd_id_medidor_pk
+	@JsonIgnore
+	@Column(name = "equ_mdd_id_medidor_pk_fk")
+	private int idMedidor;
+	
+	//spr_id_sala_pk
+	@JsonIgnore
+	@Column(name = "equ_spr_id_sala_pk_fk")
+	private int idSala;
+	
+	
     //Por que nao um boolean?
     //fica mais facil validar
     //private Character situacao;
@@ -41,7 +54,26 @@ public class Equipamento {
         this.nome = nome;
     }
 
-    @Override
+    
+    
+    
+    public int getIdMedidor() {
+		return idMedidor;
+	}
+
+	public void setIdMedidor(int idMedidor) {
+		this.idMedidor = idMedidor;
+	}
+
+	public int getIdSala() {
+		return idSala;
+	}
+
+	public void setIdSala(int idSala) {
+		this.idSala = idSala;
+	}
+
+	@Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;

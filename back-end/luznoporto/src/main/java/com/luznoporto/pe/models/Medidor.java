@@ -1,11 +1,16 @@
 package com.luznoporto.pe.models;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "tb_medidor")
@@ -22,6 +27,14 @@ public class Medidor {
     //fica mais facil validar
 	@Column(name="mdd_st_medidor")
     private char situacao;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy = "idMedidor")
+	private List<Medicao> medicoes = new ArrayList<>();
+	
+//	@Column(name="med_mdd_id_medidor_pk_fk")
+//	@OneToMany
+//	private List<Medicao> medicoes;
 
     public Medidor(){}
 
@@ -51,7 +64,9 @@ public class Medidor {
         this.situacao = situacao;
     }
 
-    @Override
+
+
+	@Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;

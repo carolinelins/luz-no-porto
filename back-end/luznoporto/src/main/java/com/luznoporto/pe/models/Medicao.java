@@ -6,7 +6,12 @@ import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "tb_medicao")
@@ -16,15 +21,24 @@ public class Medicao {
 	@Column(name = "med_id_medicao_pk")
     private int id;
 	
+	
 	@Column(name = "med_dt_ini_medicao")
 	private Date inicioMedicao;
 	
 	@Column(name = "med_dt_fin_medicao")
     private Date fimMedicao;
 	
+	
 	@Column(name = "med_vl_medicao")
     private Double valor;
+		
+	@JoinColumn(name= "mdd_id_medidor_pk")
+	@OneToMany
+	//@Column(name = "med_mdd_id_medidor_pk_fk")
+	private int idMedidor;
 
+
+	@Deprecated
     public Medicao(){}
 
     public Medicao(int id, Date inicioMedicao, Date fimMedicao, Double valor) {
@@ -62,7 +76,13 @@ public class Medicao {
         this.valor = valor;
     }
 
-    @Override
+   
+
+	public int getIdMedidor() {
+		return idMedidor;
+	}
+
+	@Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;

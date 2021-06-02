@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.NoRepositoryBean;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +22,7 @@ import com.luznoporto.pe.services.LocatarioService;
 
 @RestController
 @RequestMapping(value = "/locatarios")
+@CrossOrigin(origins = "http://localhost:3000")
 public class LocatarioController {
 
 	@Autowired
@@ -47,7 +49,6 @@ public class LocatarioController {
     public ResponseEntity<LocatarioDto> findById(@PathVariable String cnpj){
    	
    	Locatario locatario = locatarioRepository.findByCnpj(cnpj);
-   	//String cnpjLocador = locatario.getCnpj();
    	Sala sala = salaRepository.findByLocatario(locatario.getCnpj());
    	
    	return ResponseEntity.ok().body(new LocatarioDto(locatario, new SalaDto(sala.getId(), sala.getNome()) ));
