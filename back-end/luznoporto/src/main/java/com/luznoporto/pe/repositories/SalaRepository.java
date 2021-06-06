@@ -10,10 +10,6 @@ public interface SalaRepository extends JpaRepository<Sala, Integer> {
 
 	Sala findByLocatario(String string);
 
-//	Optional<Sala> findByCnpj(String string);
-//
-//	Sala findByLocatario(String locatario);
-
 	
 
 	

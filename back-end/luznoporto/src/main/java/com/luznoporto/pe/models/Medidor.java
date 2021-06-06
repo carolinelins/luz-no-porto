@@ -28,13 +28,12 @@ public class Medidor {
 	@Column(name="mdd_st_medidor")
     private char situacao;
 	
-	@JsonIgnore
+	
 	@OneToMany(mappedBy = "idMedidor")
 	private List<Medicao> medicoes = new ArrayList<>();
 	
-//	@Column(name="med_mdd_id_medidor_pk_fk")
-//	@OneToMany
-//	private List<Medicao> medicoes;
+	@OneToMany(mappedBy = "medidorEquipamento")
+	private List<Equipamento> equipamentos = new ArrayList<>();
 
     public Medidor(){}
 
@@ -65,6 +64,23 @@ public class Medidor {
     }
 
 
+	public List<Medicao> getMedicoes() {
+		return medicoes;
+	}
+
+	public void setMedicoes(List<Medicao> medicoes) {
+		this.medicoes = medicoes;
+	}
+
+	
+	
+	public List<Equipamento> getEquipamentos() {
+		return equipamentos;
+	}
+
+	public void setEquipamentos(List<Equipamento> equipamentos) {
+		this.equipamentos = equipamentos;
+	}
 
 	@Override
     public boolean equals(Object o) {

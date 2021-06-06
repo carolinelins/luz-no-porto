@@ -27,4 +27,5 @@ public class TipoDeEquipamentoController {
     	List<TipoDeEquipamento> tiposDeEquipamentos = tipoDeEquipamentoDervice.ListarTiposDeEquipamentos();
     	return ResponseEntity.ok().body(tiposDeEquipamentos);
     }
+    
 }

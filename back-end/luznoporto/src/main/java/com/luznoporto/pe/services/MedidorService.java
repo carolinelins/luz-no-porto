@@ -20,4 +20,6 @@ public class MedidorService {
 		return medidorRepository.findAll();
 	}
 	
+
+	
 }

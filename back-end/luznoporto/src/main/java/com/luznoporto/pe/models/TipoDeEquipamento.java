@@ -1,10 +1,13 @@
 package com.luznoporto.pe.models;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -21,6 +24,8 @@ public class TipoDeEquipamento {
 	@Column(name = "teq_st_tp_equip")
     private char situacao;
 
+	@OneToMany(mappedBy = "tipoDeEquipamento")
+	private List<Equipamento> equipamentos = new ArrayList<>();
 
     public TipoDeEquipamento(){}
 
@@ -48,6 +53,14 @@ public class TipoDeEquipamento {
 
 	public void setSituacao(char situacao) {
 		this.situacao = situacao;
+	}
+	
+	public List<Equipamento> getEquipamentos() {
+		return equipamentos;
+	}
+
+	public void setEquipamentos(List<Equipamento> equipamentos) {
+		this.equipamentos = equipamentos;
 	}
 
 	@Override

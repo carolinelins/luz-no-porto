@@ -24,12 +24,11 @@ public class Locatario {
     @Column(name="loca_razao_social")
     private String razaoSocial;
     
-    //Deverá virar uma entidade.
     @Column(name="loca_resp_tecnico")
     private String nomeResponsavel;
     
-   // @OneToMany
-    //private List<Sala> salas = new ArrayList<>();
+    @OneToMany(mappedBy = "proprietarioSala")
+    private List<Sala> salas = new ArrayList<>();
 
     public Locatario() {}
 
@@ -72,9 +71,9 @@ public class Locatario {
         this.nomeResponsavel = nomeResponsavel;
     }
 
-//    public List<Sala> getSalas() {
-//		return salas;
-//	}
+    public List<Sala> getSalas() {
+		return salas;
+	}
 
 	@Override
     public boolean equals(Object o) {

@@ -3,6 +3,7 @@ package com.luznoporto.pe.models;
 import java.util.Date;
 import java.util.Objects;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -12,6 +13,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "tb_medicao")
@@ -32,10 +35,10 @@ public class Medicao {
 	@Column(name = "med_vl_medicao")
     private Double valor;
 		
-	@JoinColumn(name= "mdd_id_medidor_pk")
-	@OneToMany
-	//@Column(name = "med_mdd_id_medidor_pk_fk")
-	private int idMedidor;
+	@JsonIgnore
+	@JoinColumn(name= "med_mdd_id_medidor_pk_fk")
+	@ManyToOne(cascade = CascadeType.ALL)
+	private Medidor idMedidor;
 
 
 	@Deprecated
@@ -78,8 +81,12 @@ public class Medicao {
 
    
 
-	public int getIdMedidor() {
+	public Medidor getIdMedidor() {
 		return idMedidor;
+	}
+
+	public void setIdMedidor(Medidor idMedidor) {
+		this.idMedidor = idMedidor;
 	}
 
 	@Override

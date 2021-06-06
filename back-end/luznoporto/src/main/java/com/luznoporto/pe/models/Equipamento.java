@@ -2,9 +2,12 @@ package com.luznoporto.pe.models;
 
 import java.util.Objects;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -20,20 +23,20 @@ public class Equipamento {
 	@Column(name = "equ_nm_equip")
     private String nome;
 
-	//mdd_id_medidor_pk
+	@JoinColumn(name= "equ_mdd_id_medidor_pk_fk")
+	@ManyToOne(cascade = CascadeType.ALL)
+	private Medidor medidorEquipamento;
+	
+	
 	@JsonIgnore
-	@Column(name = "equ_mdd_id_medidor_pk_fk")
-	private int idMedidor;
+	@JoinColumn(name= "equ_spr_id_sala_pk_fk")
+	@ManyToOne(cascade = CascadeType.ALL)
+	private Sala sala;
 	
-	//spr_id_sala_pk
 	@JsonIgnore
-	@Column(name = "equ_spr_id_sala_pk_fk")
-	private int idSala;
-	
-	
-    //Por que nao um boolean?
-    //fica mais facil validar
-    //private Character situacao;
+	@JoinColumn(name= "equ_teq_id_tp_equip_pk_fk")
+	@ManyToOne(cascade = CascadeType.ALL)
+	private TipoDeEquipamento tipoDeEquipamento;
 
     public  Equipamento(){}
 
@@ -54,23 +57,37 @@ public class Equipamento {
         this.nome = nome;
     }
 
-    
-    
-    
-    public int getIdMedidor() {
-		return idMedidor;
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
-	public void setIdMedidor(int idMedidor) {
-		this.idMedidor = idMedidor;
+	
+	public Medidor getMedidorEquipamento() {
+		return medidorEquipamento;
 	}
 
-	public int getIdSala() {
-		return idSala;
+	public void setMedidorEquipamento(Medidor medidorEquipamento) {
+		this.medidorEquipamento = medidorEquipamento;
 	}
 
-	public void setIdSala(int idSala) {
-		this.idSala = idSala;
+	
+	public Sala getSala() {
+		return sala;
+	}
+
+	public void setSala(Sala sala) {
+		this.sala = sala;
+	}
+
+	
+	
+	public TipoDeEquipamento getTipoDeEquipamento() {
+		return tipoDeEquipamento;
+	}
+
+	public void setTipoDeEquipamento(TipoDeEquipamento tipoDeEquipamento) {
+		this.tipoDeEquipamento = tipoDeEquipamento;
 	}
 
 	@Override

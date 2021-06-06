@@ -1,12 +1,19 @@
 package com.luznoporto.pe.models;
 
+import java.util.List;
 import java.util.Objects;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "tb_sala_predio")
@@ -28,6 +35,15 @@ public class Sala {
 	@Column(name = "spr_loca_CNPJ_locatario_pk_fk")
 	private String locatario;
 
+	@OneToMany(mappedBy = "sala")
+	private List<Equipamento> equipamentos;
+	
+	@JsonIgnore
+	@JoinColumn(name= "spr_loca_CNPJ_locatario_pk_fk", nullable=false, insertable=false, updatable=false)
+	@ManyToOne(cascade=CascadeType.ALL)
+	private Locatario proprietarioSala;
+	
+	
     public Sala(){}
 
     public Sala(int id, String nome, Double metragem, String andar, String locatario) {
@@ -66,10 +82,25 @@ public class Sala {
         this.andar = andar;
     }
     
-    
-
     public String getLocatario() {
 		return locatario;
+	}
+    
+	public List<Equipamento> getEquipamentos() {
+		return equipamentos;
+	}
+
+	public void setEquipamentos(List<Equipamento> equipamentos) {
+		this.equipamentos = equipamentos;
+	}
+	
+
+	public Locatario getProprietarioSala() {
+		return proprietarioSala;
+	}
+
+	public void setProprietarioSala(Locatario proprietarioSala) {
+		this.proprietarioSala = proprietarioSala;
 	}
 
 	@Override
