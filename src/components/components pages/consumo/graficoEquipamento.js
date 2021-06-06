@@ -34,7 +34,7 @@ class GraficoEquipamento extends Component {
 
     return (
       <div className="card bg-light text-dark m-3">
-        <div className="donut" className="card-body">
+        <div className="card-body">
           <Chart
             options={{
               chart: {
@@ -79,43 +79,3 @@ class GraficoEquipamento extends Component {
 }
 
 export default GraficoEquipamento;
-
-// class ApexChart extends React.Component {
-//   constructor(props) {
-//     super(props);
-
-//     this.state = {
-
-//       series: [44, 55, 41, 17, 15],
-//       options: {
-//         chart: {
-//           type: 'donut',
-//         },
-//         responsive: [{
-//           breakpoint: 480,
-//           options: {
-//             chart: {
-//               width: 200
-//             },
-//             legend: {
-//               position: 'bottom'
-//             }
-//           }
-//         }]
-//       },
-
-//     };
-//   }
-
-//   render() {
-//     return (
-
-// <div id="chart">
-// <Chart options={this.state.options} series={this.state.series} type="donut" />
-// </div>
-
-// );
-// }
-// }
-
-// export default ApexChart;

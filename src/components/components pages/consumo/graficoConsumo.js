@@ -16,12 +16,13 @@ class GraficoConsumo extends Component {
     const { equipamentos } = this.state;
 
     if (!equipamentos || equipamentos.length === 0) {
-      return <h1>Erro no servidor</h1>;
+      return null;
     }
     console.log(equipamentos.map((value) => value.id));
     console.log(equipamentos.map((value) => value.nome));
     return (
       <div className="card bg-light text-dark m-3">
+        <button onClick={this.handleClick}>Filtro</button>
         <div id="chart" className="card-body">
           <Chart
             options={{

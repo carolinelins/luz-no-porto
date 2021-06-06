@@ -14,6 +14,9 @@ import Footer from '../../components/footer-admin';
 import FiltrosDados from '../../components/components pages/dados/filtros-dados';
 
 import TabelaDados from '../../components/components pages/dados/tabela-dados';
+import Card1 from '../../components/components pages/dados/card1-dados';
+import Card2 from '../../components/components pages/dados/card2-dados';
+import Card3 from '../../components/components pages/dados/card3-dados';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -54,6 +57,9 @@ export default function Dados() {
         <Container maxWidth="lg" className={classes.container}>
           <h2>Dados Energeticos</h2>
           <Grid container>
+            <Card1 />
+            <Card2 />
+            <Card3 />
             <FiltrosDados className="col-sm-4" />
             <TabelaDados className="col-sm-8" />
           </Grid>

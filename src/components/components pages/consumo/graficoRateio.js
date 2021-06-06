@@ -17,16 +17,13 @@ class GraficoRateio extends Component {
     let { equipamentos } = this.state;
 
     if (!equipamentos || equipamentos.length === 0) {
-      return <h1>Erro no servidor</h1>;
+      return null;
     }
     return (
       <div className="card bg-light text-dark m-3">
         <div id="chart" className="card-body">
           <Chart
             options={{
-              // series: [{
-              //     data:[equipamentos.map((value)=>value.id)]
-              // }],
               chart: {
                 type: 'bar',
                 height: 350,
@@ -57,7 +54,7 @@ class GraficoRateio extends Component {
             // labels={equipamentos.map((value)=>value.nome)}
             type="bar"
             height={350}
-            width={500}
+            width={450}
           />
         </div>
       </div>
