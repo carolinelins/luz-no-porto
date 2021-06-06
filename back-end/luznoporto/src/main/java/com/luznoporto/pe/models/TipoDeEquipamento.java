@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "tb_tipo_equipamento")
 public class TipoDeEquipamento {
@@ -24,6 +26,7 @@ public class TipoDeEquipamento {
 	@Column(name = "teq_st_tp_equip")
     private char situacao;
 
+	@JsonIgnore
 	@OneToMany(mappedBy = "tipoDeEquipamento")
 	private List<Equipamento> equipamentos = new ArrayList<>();
 

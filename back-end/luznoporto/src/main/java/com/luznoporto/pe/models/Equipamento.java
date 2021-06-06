@@ -23,6 +23,7 @@ public class Equipamento {
 	@Column(name = "equ_nm_equip")
     private String nome;
 
+	
 	@JoinColumn(name= "equ_mdd_id_medidor_pk_fk")
 	@ManyToOne(cascade = CascadeType.ALL)
 	private Medidor medidorEquipamento;
@@ -33,7 +34,7 @@ public class Equipamento {
 	@ManyToOne(cascade = CascadeType.ALL)
 	private Sala sala;
 	
-	@JsonIgnore
+	
 	@JoinColumn(name= "equ_teq_id_tp_equip_pk_fk")
 	@ManyToOne(cascade = CascadeType.ALL)
 	private TipoDeEquipamento tipoDeEquipamento;

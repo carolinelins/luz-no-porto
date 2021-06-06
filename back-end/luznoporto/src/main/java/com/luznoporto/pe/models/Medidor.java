@@ -32,6 +32,7 @@ public class Medidor {
 	@OneToMany(mappedBy = "idMedidor")
 	private List<Medicao> medicoes = new ArrayList<>();
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "medidorEquipamento")
 	private List<Equipamento> equipamentos = new ArrayList<>();
 
@@ -63,10 +64,10 @@ public class Medidor {
         this.situacao = situacao;
     }
 
-
-	public List<Medicao> getMedicoes() {
-		return medicoes;
-	}
+//
+//	public List<Medicao> getMedicoes() {
+//		return medicoes;
+//	}
 
 	public void setMedicoes(List<Medicao> medicoes) {
 		this.medicoes = medicoes;

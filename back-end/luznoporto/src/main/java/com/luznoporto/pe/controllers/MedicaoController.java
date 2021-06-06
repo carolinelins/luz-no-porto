@@ -63,23 +63,6 @@ public class MedicaoController {
 
 	}
 
-//	@GetMapping("/detalhes")
-//	public ResponseEntity<List<MedicaoDto>> medicoesDetalhadas() {
-//
-//			List<Equipamento> equipamentos =  equipamentoRepository.findAll();
-//			
-//			List<MedicaoDto> medicoesDto = new ArrayList<>();
-//			
-//			medicoesDto = equipamentos.stream().map(equipamento 
-//					-> new MedicaoDto(equipamento,medidorRepository.findById(equipamento.getIdMedidor()).get(),
-//							salaRepository.findById(equipamento.getIdSala()).get())).collect(Collectors.toList());
-//			
-//			List<MedicaoDto> medicoesDetalhdasDto = new ArrayList<>();
-//		
-//			
-//			
-//			return ResponseEntity.ok().body(medicoesDetalhdasDto);
-//
-//	}
+
 
 }
