@@ -11,8 +11,8 @@ import Grid from '@material-ui/core/Grid';
 import MenuAdmin from '../../components/menu-admin';
 
 import Footer from '../../components/footer-admin'  
-// import Grafico1 from '../../components/components pages/dashboard/grafico1'
-// import Grafico2 from '../../components/components pages/dashboard/grafico2'
+import GraficoConsumo from '../../components/components pages/consumo/graficoConsumo';
+import GraficoRateio from '../../components/components pages/consumo/graficoRateio';;
 
 
 const useStyles = makeStyles((theme) => ({
@@ -59,9 +59,8 @@ export default function Dashboard() {
         <Container maxWidth="lg" className={classes.container}>
           <Grid container spacing={3}>
             
-          {/* <Grafico1 /> */}
-          {/* <Grafico2 /> */}
-          
+          <GraficoConsumo />
+          <GraficoRateio />
             
           </Grid>
           <Box pt={4}>

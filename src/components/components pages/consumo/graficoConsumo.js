@@ -22,7 +22,6 @@ class GraficoConsumo extends Component {
     console.log(equipamentos.map((value) => value.nome));
     return (
       <div className="card bg-light text-dark m-3">
-        <button onClick={this.handleClick}>Filtro</button>
         <div id="chart" className="card-body">
           <Chart
             options={{

@@ -8,15 +8,14 @@ class TabelaDados extends Component {
   };
 
   async componentDidMount() {
-    const responseMedicao = await Api.get('/medicoes/buscarporperiodo/2020-05-14/2020-05-15');
+    const responseMedicao = await Api.get('/medicoes');
 
     this.setState({ medicoes: responseMedicao.data });
-    
   }
 
   render() {
     const { medicoes } = this.state;
-    console.log(medicoes)
+
     return (
       <div className="pr-1 pt-4 pl-4 pb-2 mx-auto">
         <Table className="table-striped table-condensed table-responsive table-right">
