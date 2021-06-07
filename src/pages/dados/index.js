@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -46,6 +46,8 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Dados() {
   const classes = useStyles();
+  const [dataInicio, setDataInicio] = useState("2020-05-14");
+  const [dataFim, setDataFim] = useState("2020-05-15");
 
   return (
     <div className={classes.root}>
@@ -58,8 +60,18 @@ export default function Dados() {
           <Grid container>
             <Card1 />
             
-            <FiltrosDados className="col-sm-4" />
-            <TabelaDados className="col-sm-8" />
+            <FiltrosDados
+              className="col-sm-4"
+              dataInicio={dataInicio}
+              setDataInicio={setDataInicio}
+              dataFim={dataFim}
+              setDataFim={setDataFim}
+            />
+            <TabelaDados
+              className="col-sm-8"
+              dataInicio={dataInicio}
+              dataFim={dataFim}
+            />
           </Grid>
           <Box pt={4}>
             <Footer />

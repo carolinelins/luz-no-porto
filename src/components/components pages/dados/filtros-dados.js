@@ -20,20 +20,23 @@ class FiltrosDados extends Component {
   }
 
   render() {
-    let { locatarios } = this.state;
-    let { tiposEquipamentos } = this.state;
-    let { localizacaoSalas } = this.state;
+    const { 
+      locatarios,
+      tiposEquipamentos,
+      localizacaoSalas 
+    } = this.state;
+    const { dataInicio, setDataInicio, dataFim, setDataFim } = this.props;
 
     return (
       <div className="pl-5 pt-5">
         <div className="pt-4">
           <div>
             <label className="pr-3">De:</label>
-            <input type="date"></input>
+            <input type="date" value={dataInicio} onChange={(evt) => setDataInicio(evt.target.value)}></input>
           </div>
           <div>
             <label className="pt-2 pr-3">Até:</label>
-            <input type="date"></input>
+            <input type="date" value={dataFim} onChange={(evt) => setDataFim(evt.target.value)}></input>
           </div>
         </div>
 

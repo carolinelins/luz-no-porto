@@ -2,19 +2,68 @@ import React, { Component } from 'react';
 import { Table } from 'reactstrap';
 import Api from '../../../api';
 
+const resumo = (medicoes) => {
+  let result = [];
+  let total = 0.0;
+  let dataMedicao = medicoes[0].inicioMedicao;
+  let dataAnterior = dataMedicao.substring(0, dataMedicao.indexOf('T'));
+  let data;
+for (let i = 0; i < medicoes.length; ++i) {
+    dataMedicao = medicoes[i].inicioMedicao;
+    data = dataMedicao.substring(0, dataMedicao.indexOf('T'));
+    if (data === dataAnterior) {
+      total += medicoes[i].valor;
+    } else {
+      result.push({ inicioMedicao: dataAnterior, valor: total.toFixed(2) });
+      total = medicoes[i].valor;
+    }
+    dataAnterior = data;
+  }
+  result.push({ inicioMedicao: data, valor: total.toFixed(2) });
+  return result;
+}
+
 class TabelaDados extends Component {
   state = {
     medicoes: [],
+    loading: false
   };
 
-  async componentDidMount() {
-    const responseMedicao = await Api.get('/medicoes');
+  componentDidMount() {
+    this.getTabela();
+  }
 
-    this.setState({ medicoes: responseMedicao.data });
+  getTabela = async () => {
+    const { dataInicio, dataFim } = this.props;
+    this.setState({ loading: true });
+    let url = '/medicoes';
+    if (dataInicio && dataInicio) {
+      url += `/buscarPorPeriodo/${dataInicio}/${dataFim}`;
+    }
+    const responseMedicao = await Api.get(url);
+    this.setState({ loading: false });
+    if (dataInicio && dataInicio) {
+      this.setState({ medicoes: resumo(responseMedicao.data.medicoes) });
+    } else {
+      this.setState({ medicoes: resumo(responseMedicao.data) });
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    if (
+      (this.props.dataInicio && this.props.dataFim) &&
+      (this.props.dataInicio !== prevProps.dataInicio || this.props.dataFim !== prevProps.dataFim)
+    ) {
+        this.getTabela();
+    }
   }
 
   render() {
-    const { medicoes } = this.state;
+    const { medicoes, loading } = this.state;
+
+    if (loading) {
+      return <h3>Carregando...</h3>
+    }
 
     return (
       <div className="pr-1 pt-4 pl-4 pb-2 mx-auto">
@@ -28,9 +77,9 @@ class TabelaDados extends Component {
             </tr>
           </thead>
           <tbody>
-            {medicoes.map((medicao) => (
-              <tr>
-                <td className="text-right" key={medicao.id}>
+            {medicoes.map((medicao, index) => (
+              <tr key={index}>
+                <td className="text-right">
                   {medicao.id}
                 </td>
                 <td className="text-right">{medicao.inicioMedicao}</td>
