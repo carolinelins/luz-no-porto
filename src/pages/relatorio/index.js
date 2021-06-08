@@ -18,6 +18,7 @@ import MyDocument from '../../components/components pages/relatorio/pdf'
 import FiltroLocalizacao from '../../components/components pages/relatorio/localizacao'
 import FiltroPeriodo from '../../components/components pages/relatorio/periodo'
 import { useFiltros } from '../../components/components pages/relatorio/providers/filtros'
+import Salas from '../../components/components pages/relatorio/salas'
 
 import { PDFViewer } from '@react-pdf/renderer'
 
@@ -54,7 +55,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Relatorio() {
   const classes = useStyles();
-  //const { filtros, useFiltros } = useFiltros()
+  const { filtros, setFiltros } = useFiltros()
 
   return (
     <div className={classes.root}>
@@ -72,7 +73,7 @@ export default function Relatorio() {
             </div>
 
             <div id="local" className="filtro-local">
-              <FiltroLocalizacao />
+              <Salas />
             </div>
 
             <div className="periodo1">
@@ -84,7 +85,7 @@ export default function Relatorio() {
             </div>
             <div id="pdf">
               <PDFViewer height="483px">
-                <MyDocument />
+                <MyDocument sala={filtros.sala} />
               </PDFViewer>
             </div>
           </Grid>

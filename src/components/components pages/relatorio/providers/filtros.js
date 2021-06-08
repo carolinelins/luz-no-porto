@@ -4,7 +4,7 @@ export const FiltrosContext = React.createContext({})
 
 export const FiltrosProvider = (props) => {
     const [ filtros, setFiltros ] = useState({
-        localizacao: '',
+        sala: '',
         periodo: ''
     }) 
 

@@ -24,9 +24,7 @@ const styles = StyleSheet.create({
 });
 
 // Create Document Component
-function MyDocument() {
-  //const { filtros, setFiltros } = useFiltros()
-
+function MyDocument(props) {
   return (
     <Document>
       <Page size="A4" style={styles.page}>
@@ -36,7 +34,7 @@ function MyDocument() {
           </Text>
         </View>
         <View>
-          <Text style={styles.section}>Localização:</Text>
+          <Text style={styles.section}>Localização: {props.sala}</Text>
         </View>
         <View>
           <Text style={styles.section}>Período:</Text>
