@@ -1,25 +1,24 @@
 import React, { Component } from 'react';
 import Chart from 'react-apexcharts';
 import api from '../../../api';
-
+import { resumo } from '../../../utils/resumirConsumo';
+import { medicoes } from '../../../utils/dadosLocais';
 class GraficoConsumo extends Component {
   state = {
     equipamentos: [],
   };
   async componentDidMount() {
-    const response = await api.get('/tiposDeEquipamentos');
-
-    this.setState({ equipamentos: response.data });
+    // const response = await api.get('/medicoes');
+    // this.setState({ medicoes: resumo(response.data) });
+    this.setState({ medicoes: resumo(medicoes) });
   }
 
   render() {
-    const { equipamentos } = this.state;
+    const { medicoes } = this.state;
 
-    if (!equipamentos || equipamentos.length === 0) {
+    if (!medicoes || medicoes.length === 0) {
       return null;
     }
-    console.log(equipamentos.map((value) => value.id));
-    console.log(equipamentos.map((value) => value.nome));
     return (
       <div className="card bg-light text-dark m-3">
         <div id="chart" className="card-body">
@@ -53,7 +52,7 @@ class GraficoConsumo extends Component {
                 //categories: equipamentos.map((value) => value.nome),
                 //EXEMPLO EIXO X ESTATICO - FUNCIONANDO
                 // CATEGORIES - SEMANAL
-                categories: ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'],
+                categories: medicoes.map((value) => value.inicioMedicao),
               },
               yaxis: {
                 opposite: true,
@@ -66,7 +65,7 @@ class GraficoConsumo extends Component {
               {
                 // name: equipamentos.map((value) => value.nome),
                 name: 'Consumo kWh',
-                data: equipamentos.map((value) => value.id),
+                data: medicoes.map((value) => value.valor),
               },
             ]}
             type="area"
