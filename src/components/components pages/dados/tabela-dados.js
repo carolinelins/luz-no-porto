@@ -8,7 +8,7 @@ const resumo = (medicoes) => {
   let dataMedicao = medicoes[0].inicioMedicao;
   let dataAnterior = dataMedicao.substring(0, dataMedicao.indexOf('T'));
   let data;
-for (let i = 0; i < medicoes.length; ++i) {
+  for (let i = 0; i < medicoes.length; ++i) {
     dataMedicao = medicoes[i].inicioMedicao;
     data = dataMedicao.substring(0, dataMedicao.indexOf('T'));
     if (data === dataAnterior) {
@@ -21,12 +21,12 @@ for (let i = 0; i < medicoes.length; ++i) {
   }
   result.push({ inicioMedicao: data, valor: total.toFixed(2) });
   return result;
-}
+};
 
 class TabelaDados extends Component {
   state = {
     medicoes: [],
-    loading: false
+    loading: false,
   };
 
   componentDidMount() {
@@ -47,14 +47,16 @@ class TabelaDados extends Component {
     } else {
       this.setState({ medicoes: resumo(responseMedicao.data) });
     }
-  }
+  };
 
   componentDidUpdate(prevProps) {
     if (
-      (this.props.dataInicio && this.props.dataFim) &&
-      (this.props.dataInicio !== prevProps.dataInicio || this.props.dataFim !== prevProps.dataFim)
+      this.props.dataInicio &&
+      this.props.dataFim &&
+      (this.props.dataInicio !== prevProps.dataInicio ||
+        this.props.dataFim !== prevProps.dataFim)
     ) {
-        this.getTabela();
+      this.getTabela();
     }
   }
 
@@ -62,28 +64,26 @@ class TabelaDados extends Component {
     const { medicoes, loading } = this.state;
 
     if (loading) {
-      return <h3>Carregando...</h3>
+      return <h3>Carregando...</h3>;
     }
 
     return (
-      <div className="pr-1 pt-4 pl-4 pb-2 mx-auto">
-        <Table className="table-striped table-condensed table-responsive table-right">
+      <div className="pr-5 pt-4 pl-4 pb-2 mx-auto">
+        <Table className="table-striped table-condensed table-responsive">
           <thead>
             <tr className="text-center">
-              <th>Id</th>
+              {/* <th>Id</th> */}
               <th>Inicio Medição</th>
-              <th>Fim Medição</th>
+              {/* <th>Fim Medição</th> */}
               <th>Consumo(kWh)</th>
             </tr>
           </thead>
           <tbody>
             {medicoes.map((medicao, index) => (
               <tr key={index}>
-                <td className="text-right">
-                  {medicao.id}
-                </td>
+                {/* <td className="text-right">{medicao.id}</td> */}
                 <td className="text-right">{medicao.inicioMedicao}</td>
-                <td className="text-right">{medicao.fimMedicao}</td>
+                {/* <td className="text-right">{medicao.fimMedicao}</td> */}
                 <td className="text-center">{medicao.valor}</td>
               </tr>
             ))}

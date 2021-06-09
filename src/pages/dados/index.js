@@ -16,7 +16,6 @@ import FiltrosDados from '../../components/components pages/dados/filtros-dados'
 import TabelaDados from '../../components/components pages/dados/tabela-dados';
 import Card1 from '../../components/components pages/dados/card-dados';
 
-
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
@@ -46,8 +45,8 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Dados() {
   const classes = useStyles();
-  const [dataInicio, setDataInicio] = useState("2020-05-14");
-  const [dataFim, setDataFim] = useState("2020-05-15");
+  const [dataInicio, setDataInicio] = useState('2020-05-14');
+  const [dataFim, setDataFim] = useState('2020-05-15');
 
   return (
     <div className={classes.root}>
@@ -58,21 +57,24 @@ export default function Dados() {
         <Container maxWidth="lg" className={classes.container}>
           <h2>Dados Energeticos</h2>
           <Grid container>
-            <Card1 />
-            
-            <FiltrosDados
-              className="col-sm-4"
-              dataInicio={dataInicio}
-              setDataInicio={setDataInicio}
-              dataFim={dataFim}
-              setDataFim={setDataFim}
-            />
-            <TabelaDados
-              className="col-sm-8"
-              dataInicio={dataInicio}
-              dataFim={dataFim}
-            />
+            <Card1 className="col-sm-12" />
           </Grid>
+          <div className="card bg-light text-dark m-3">
+            <Grid container>
+              <FiltrosDados
+                className="col-sm-4"
+                dataInicio={dataInicio}
+                setDataInicio={setDataInicio}
+                dataFim={dataFim}
+                setDataFim={setDataFim}
+              />
+              <TabelaDados
+                className="col-sm-8"
+                dataInicio={dataInicio}
+                dataFim={dataFim}
+              />
+            </Grid>
+          </div>
           <Box pt={4}>
             <Footer />
           </Box>

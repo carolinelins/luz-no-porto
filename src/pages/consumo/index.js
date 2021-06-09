@@ -49,7 +49,6 @@ export default function Consumo() {
   return (
     <div className={classes.root}>
       <MenuAdmin />
-
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
