@@ -64,10 +64,10 @@ public class Medidor {
         this.situacao = situacao;
     }
 
-//
-//	public List<Medicao> getMedicoes() {
-//		return medicoes;
-//	}
+
+	public List<Medicao> getMedicoes() {
+		return medicoes;
+	}
 
 	public void setMedicoes(List<Medicao> medicoes) {
 		this.medicoes = medicoes;

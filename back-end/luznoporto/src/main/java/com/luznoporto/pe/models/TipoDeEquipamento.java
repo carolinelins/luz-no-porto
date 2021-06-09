@@ -26,7 +26,7 @@ public class TipoDeEquipamento {
 	@Column(name = "teq_st_tp_equip")
     private char situacao;
 
-	@JsonIgnore
+	//@JsonIgnore
 	@OneToMany(mappedBy = "tipoDeEquipamento")
 	private List<Equipamento> equipamentos = new ArrayList<>();
 
