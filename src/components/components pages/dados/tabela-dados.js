@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Table } from 'reactstrap';
 import Api from '../../../api';
+import Moment from 'moment';
 
 const resumo = (medicoes) => {
   let result = [];
@@ -14,12 +15,18 @@ const resumo = (medicoes) => {
     if (data === dataAnterior) {
       total += medicoes[i].valor;
     } else {
-      result.push({ inicioMedicao: dataAnterior, valor: total.toFixed(2) });
+      result.push({
+        inicioMedicao: Moment(dataAnterior).format('DD-MM-YY'),
+        valor: total.toFixed(2),
+      });
       total = medicoes[i].valor;
     }
     dataAnterior = data;
   }
-  result.push({ inicioMedicao: data, valor: total.toFixed(2) });
+  result.push({
+    inicioMedicao: Moment(data).format('DD-MM-YY'),
+    valor: total.toFixed(2),
+  });
   return result;
 };
 
