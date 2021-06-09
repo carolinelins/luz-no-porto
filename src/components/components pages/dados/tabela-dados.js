@@ -45,6 +45,7 @@ class TabelaDados extends Component {
     this.setState({ loading: true });
     let url = '/medicoes';
     if (dataInicio && dataInicio) {
+      // && dataFim nao??
       url += `/buscarPorPeriodo/${dataInicio}/${dataFim}`;
     }
     const responseMedicao = await Api.get(url);
@@ -70,8 +71,22 @@ class TabelaDados extends Component {
   render() {
     const { medicoes, loading } = this.state;
 
+    const styles = {
+      width: '60%',
+    };
+
     if (loading) {
-      return <h3>Carregando...</h3>;
+      return (
+        <div>
+          <h3>Carregando...</h3>
+          <div className="progress">
+            <div
+              className="progress-bar progress-bar-striped progress-bar-animated"
+              style={{ width: styles.width }}
+            ></div>
+          </div>
+        </div>
+      );
     }
 
     return (
