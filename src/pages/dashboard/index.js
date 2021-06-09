@@ -12,7 +12,8 @@ import MenuAdmin from '../../components/menu-admin';
 
 import Footer from '../../components/footer-admin'  
 import GraficoConsumo from '../../components/components pages/consumo/graficoConsumo';
-import GraficoRateio from '../../components/components pages/consumo/graficoRateio';;
+import GraficoRateio from '../../components/components pages/consumo/graficoRateio';
+import Card1 from '../../components/components pages/dados/card-dados';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -58,10 +59,15 @@ export default function Dashboard() {
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
           <Grid container spacing={3}>
-            
+            <div style={{width:'55rem'}}>
           <GraficoConsumo />
+          </div>
+          <div style={{width:'40rem'}}>
           <GraficoRateio />
-            
+          </div>
+          <div>
+          <Card1 />
+          </div>
           </Grid>
           <Box pt={4}>
             <Footer />

@@ -7,21 +7,21 @@ import {
 const Card1 = (props) => {
   return (
     <CardDeck>
-      <Card>
+      <Card style={{ width: '20rem' }}>
         <CardBody>
-          <CardTitle tag="h5">Consumo Médio</CardTitle>
+          <CardTitle tag="h5" style={{textAlign:'center'}}>Consumo Médio</CardTitle>
           <CardText></CardText>
         </CardBody>
       </Card>
-      <Card>
+      <Card style={{ width: '20rem',height:'8rem' }}>
         <CardBody>
-          <CardTitle tag="h5">Redução de Consumo</CardTitle>
+          <CardTitle tag="h5" style={{textAlign:'center'}}>Redução de Consumo</CardTitle>
           <CardText></CardText>
         </CardBody>
       </Card>
-      <Card>
+      <Card style={{ width: '20rem' }}>
         <CardBody>
-          <CardTitle tag="h5">Redução de Emissões</CardTitle>
+          <CardTitle tag="h5" style={{textAlign:'center'}}>Redução de Emissões</CardTitle>
           <CardText></CardText>
         </CardBody>
       </Card>

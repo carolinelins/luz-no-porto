@@ -28,7 +28,7 @@ class FiltrosDados extends Component {
     const { dataInicio, setDataInicio, dataFim, setDataFim } = this.props;
 
     return (
-      <div className="pl-5 pt-5">
+      <div className="pl-4 pt-4">
         <div className="pt-4">
           <div>
             <label className="pr-3">De:</label>
