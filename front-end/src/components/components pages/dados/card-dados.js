@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import api from '../../../api';
+import Grid from '@material-ui/core/Grid';
 // import Moment from 'moment';
 // import { Card, CardTitle, CardText, CardDeck, CardBody } from 'reactstrap';
 
@@ -78,12 +79,22 @@ class Card1 extends Component {
 
   render() {
     return (
-      <div>
-        <p>ultimo consumo: {this.state.ultimoConsumoTotal}</p>
-        <p>penultimo consumo: {this.state.penultimoConsumoTotal}</p>
-        <p>status: {this.state.status}</p>
-        <p>%perc: {this.state.reducaoConsumo}%</p>
-      </div>
+      <Grid container>
+        <div className="card bg-light col-sm-4 m-3 text-dark ">
+          <p>Último Consumo:</p>
+          <p>{this.state.ultimoConsumoTotal}</p>
+        </div>
+        <div className="card bg-light col-sm-4 m-3 text-dark ">
+          <p>{this.state.status} de Consumo</p>
+          <p>{this.state.reducaoConsumo}%</p>
+        </div>
+        <div className="card bg-light col-sm-3 m-3 text-dark ">
+          <p>Redução de CO2</p>
+          <p>---- t/C02</p>
+        </div>
+      </Grid>
+      // <div className="card bg-light text-dark m-3">
+      // <div id="chart" className="card-body">
     );
   }
 }

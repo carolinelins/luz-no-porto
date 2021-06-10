@@ -66,7 +66,8 @@ class GraficoConsumo extends Component {
               {
                 // name: equipamentos.map((value) => value.nome),
                 name: 'Consumo kWh',
-                data: equipamentos.map((value) => value.id),
+                data: [183480, 163290, 145480, 194101, 212280, 87990, 62013],
+                // data: equipamentos.map((value) => value.id),
               },
             ]}
             type="area"
