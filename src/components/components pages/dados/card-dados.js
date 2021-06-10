@@ -64,15 +64,15 @@ class Card1 extends Component {
 
     if (this.state.reducaoConsumo > 0) {
       this.setState({
-        status: 'aumento',
+        status: 'Aumento',
       });
     } else if (this.state.reducaoConsumo < 0) {
       this.setState({
-        status: 'redução',
+        status: 'Redução',
       });
     } else {
       this.setState({
-        status: 'estável',
+        status: 'Estável',
       });
     }
   }
@@ -80,15 +80,15 @@ class Card1 extends Component {
   render() {
     return (
       <Grid container>
-        <div className="card bg-light col-sm-3 m-3 text-dark p-4">
-          <p>ultimo consumo:</p>
+        <div className="card bg-light col-sm-4 m-3 text-dark ">
+          <p>Último Consumo:</p>
           <p>{this.state.ultimoConsumoTotal}</p>
         </div>
-        <div className="card bg-light col-sm-3 m-3 text-dark p-4">
-          <p>{this.state.status} de consumo</p>
+        <div className="card bg-light col-sm-4 m-3 text-dark ">
+          <p>{this.state.status} de Consumo</p>
           <p>{this.state.reducaoConsumo}%</p>
         </div>
-        <div className="card bg-light col-sm-3 m-3 text-dark p-4">
+        <div className="card bg-light col-sm-3 m-3 text-dark ">
           <p>Redução de CO2</p>
           <p>---- t/C02</p>
         </div>
