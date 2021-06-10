@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Page, Text, View, Document, StyleSheet } from '@react-pdf/renderer';
-import { useFiltros } from './providers/filtros'
+import TabelaDados from './tabela'
 
 // Create styles
 const styles = StyleSheet.create({
@@ -23,8 +23,13 @@ const styles = StyleSheet.create({
   }
 });
 
+
+
 // Create Document Component
 function MyDocument(props) {
+  const [dataInicio, setDataInicio] = useState("2020-05-14")
+  const [dataFim, setDataFim] = useState("2020-05-15")
+
   return (
     <Document>
       <Page size="A4" style={styles.page}>
@@ -37,7 +42,14 @@ function MyDocument(props) {
           <Text style={styles.section}>Localização: {props.sala}</Text>
         </View>
         <View>
-          <Text style={styles.section}>Período:</Text>
+          <Text style={styles.section}>Período: de {props.dataInicio} até {props.dataFim}</Text>
+            <TabelaDados
+              dataInicio={dataInicio}
+              setDataInicio={setDataInicio}
+              dataFim={dataFim}
+              setDataFim={setDataFim}
+            />
+
         </View>
       </Page>
     </Document>

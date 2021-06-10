@@ -3,7 +3,7 @@ import api from '../../../api'
 import { useFiltros } from './providers/filtros'
 
 function Salas() {
-    const [salas, setSalas] = useState([])
+    const [ salas, setSalas ] = useState([])
     const { filtros, setFiltros } = useFiltros()
 
     useEffect(() => {
@@ -24,31 +24,5 @@ function Salas() {
         </select>
     )
 }
-
-/* class Salas extends React.Component {
-    state = {
-        salas: []
-    }
-
-    async componentDidMount() {
-        const response = await api.get('/salas')
-
-        this.setState({ salas: response.data })
-    }
-
-    render() {
-        const { salas } = this.state
-
-        return(
-            <select>
-                {salas.map((sala) => (
-                    <option key={sala.id}>
-                        {sala.nome}
-                    </option>
-                ))}
-            </select>
-        )
-    }
-} */
 
 export default Salas

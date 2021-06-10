@@ -1,51 +1,23 @@
-import React, { useState } from "react";
+import React from "react";
+import { useFiltros } from "./providers/filtros"
 
-function FiltroPeriodo() {
-    const [periodo] = React.useState([
-
-        {
-            label: "Ontem",
-            value: "Ontem"
-        },
-
-        {
-            label: "Últimos 7 dias",
-            value: "Últimos 7 dias"
-        },
-
-        {
-            label: "Últimos 15 dias",
-            value: "Últimos 15 dias"
-        },
-
-        {
-            label: "Últimos 30 dias",
-            value: "Últimos 30 dias"
-        },
-
-        {
-            label: "Último ano",
-            value: "Último ano"
-        },
-
-
-    ])
+function Periodo() {
+    const { filtros, setFiltros } = useFiltros()
 
     return (
         <div>
-            <select>
-                {periodo.map(periodo => (
-                    <option
-                        id="periodo"
-                        key={periodo.value}
-                        value={periodo.value}
-                    >
-                        {periodo.label}
-                    </option>
-
-                ))}
-            </select>
-        </div>)
-
+            <div>
+                <div>
+                    <label className="pr-3">De:</label>
+                    <input type="date" value={filtros.dataInicio} onChange={(evt) => setFiltros(prevState => ({ ...prevState, dataInicio: evt.target.value}))}></input>
+                </div>
+                <div>
+                    <label className="pt-2 pr-3">Até:</label>
+                    <input type="date" value={filtros.dataFim} onChange={(evt) => setFiltros(prevState => ({ ...prevState, dataFim: evt.target.value}))}></input>
+                </div>
+            </div>
+        </div>
+    )
 }
-export default FiltroPeriodo;
+
+export default Periodo;

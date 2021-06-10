@@ -5,7 +5,9 @@ export const FiltrosContext = React.createContext({})
 export const FiltrosProvider = (props) => {
     const [ filtros, setFiltros ] = useState({
         sala: '',
-        periodo: ''
+        dataInicio: '2020-05-14',
+        dataFim: '2020-05-15',
+        medicoes: []
     }) 
 
     return (
