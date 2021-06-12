@@ -58,7 +58,7 @@ class FiltrosDados extends Component {
             <label className="input-group-text pr-4">Empresa</label>
           </div>
           <select className="custom-select">
-            <option selected>Todas</option>
+            <option>Todas</option>
             {locatarios.map((locatario) => (
               <option disabled key={locatario.cnpj}>
                 {locatario.nomeFantasia}
@@ -73,7 +73,7 @@ class FiltrosDados extends Component {
             <label className="input-group-text pr-4">Localização</label>
           </div>
           <select className="custom-select">
-            <option selected>Todas</option>
+            <option>Todas</option>
             {localizacaoSalas.map((sala) => (
               <option disabled key={sala.id}>
                 {sala.nome}
@@ -88,9 +88,7 @@ class FiltrosDados extends Component {
             <label className="input-group-text pr-4">Equipamento</label>
           </div>
           <select className="custom-select">
-            <option selected value="">
-              Todos
-            </option>
+            <option>Todos</option>
             {tiposEquipamentos.map((equipamento) => (
               <option disabled key={equipamento.id}>
                 {equipamento.nome}

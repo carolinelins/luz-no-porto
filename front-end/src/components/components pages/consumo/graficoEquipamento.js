@@ -48,7 +48,6 @@ class GraficoEquipamento extends Component {
                 text: 'Porto Digital',
                 align: 'left',
               },
-              // series: equipamentos.map((value) => value.id),
               labels: equipamentos.map((value) => value.nome),
               xaxis: {
                 type: 'numeric',
@@ -68,7 +67,6 @@ class GraficoEquipamento extends Component {
               ],
             }}
             series={equipamentos.map((value) => value.id)}
-            // labels={('pera', 'uva', 'maca', 'morango', 'limao', 'banana')}
             type="donut"
             width="450"
           />

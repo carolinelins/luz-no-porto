@@ -42,37 +42,39 @@ class GraficoRateio extends Component {
                 enabled: false,
               },
 
-              //CODIGO DINAMICO: [AGUARDANDO REQUISICAO]
-              // xaxis: {
-              //   categories: equipamentos.map((value) => value.nome),
-              // },
-
+              //EXEMPLO DINAMICO - [AGUARDANDO REQUISICAO DO CONSUMO POR EMPRESAS - UTILIZAMOS EQUIPAMENTO DE EXEMPLO DINAMICO]
               xaxis: {
-                categories: [
-                  'NGPD',
-                  'Cesar',
-                  'For Solutions',
-                  'G3',
-                  'Fast',
-                  'Fontech',
-                  'Belweb',
-                ],
+                categories: equipamentos.map((value) => value.nome),
               },
-            }}
-            //CODIGO DINAMICO: [AGUARDANDO REQUISICAO]
-            // series={[
-            //   {
-            //     name: 'Consumo kWh',
-            //     data: equipamentos.map((value) => value.id),
-            //   },
-            // ]}
 
+              //EXEMPLO ESTATICO - FUNCIONANDO
+              // xaxis: {
+              //   categories: [
+              //     'NGPD',
+              //     'Cesar',
+              //     'For Solutions',
+              //     'G3',
+              //     'Fast',
+              //     'Fontech',
+              //     'Belweb',
+              //   ],
+              // },
+            }}
+            // EXEMPLO DINAMICO: [AGUARDANDO REQUISICAO]
             series={[
               {
                 name: 'Consumo kWh',
-                data: [23480, 16390, 14480, 14101, 12280, 8790, 6013],
+                data: equipamentos.map((value) => value.id),
               },
             ]}
+            //EXEMPLO ESTATICO
+            // series={[
+            //   {
+            //     name: 'Consumo kWh',
+            //     data: [23480, 16390, 14480, 14101, 12280, 8790, 6013],
+            //   },
+            // ]}
+
             // labels={equipamentos.map((value)=>value.nome)}
             type="bar"
             height={350}

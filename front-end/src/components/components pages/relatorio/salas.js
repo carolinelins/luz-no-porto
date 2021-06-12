@@ -26,7 +26,7 @@ function Salas() {
             setFiltros((prevState) => ({ ...prevState, sala: e.target.value }))
           }
         >
-          <option selected>Todas</option>
+          <option>Todas</option>
           {salas.map((sala) => (
             <option key={sala.id} value={sala.nome}>
               {sala.nome}
