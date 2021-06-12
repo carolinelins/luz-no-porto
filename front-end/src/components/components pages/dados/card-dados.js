@@ -9,7 +9,7 @@ class Card1 extends Component {
     super();
 
     var anoAtual = new Date().getFullYear();
-    var mesAtual = new Date().getMonth() + 1;
+    //var mesAtual = new Date().getMonth() + 1;
     var ultimoMes = new Date().getMonth().toString();
     var penultimoMes = (new Date().getMonth() - 1).toString();
     var antepenultimoMes = (new Date().getMonth() - 2).toString();

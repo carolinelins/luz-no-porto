@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import Api from '../../../api';
 import Moment from 'moment';
-import { View, Text, StyleSheet } from '@react-pdf/renderer'
-
-
+import { View, Text, StyleSheet } from '@react-pdf/renderer';
 
 const resumo = (medicoes) => {
   let result = [];
@@ -50,9 +48,9 @@ class TabelaDados extends Component {
       // && dataFim nao??
       url += `/buscarPorPeriodo/${dataInicio}/${dataFim}`;
     }
-    console.log(dataInicio, dataFim)
+    console.log(dataInicio, dataFim);
     const responseMedicao = await Api.get(url);
-    console.log(responseMedicao)
+    console.log(responseMedicao);
     this.setState({ loading: false });
     if (dataInicio && dataInicio) {
       this.setState({ medicoes: resumo(responseMedicao.data.medicoes) });
@@ -73,33 +71,34 @@ class TabelaDados extends Component {
   }
 
   render() {
-    const { medicoes, loading } = this.state;
+    //const { medicoes, loading } = this.state;
+    const { medicoes } = this.state;
 
     const styles = StyleSheet.create({
       table: {
-        display: "table",
-        width: "auto",
-        borderStyle: "solid",
+        display: 'table',
+        width: 'auto',
+        borderStyle: 'solid',
         borderWidth: 1,
         borderRightWidth: 0,
-        borderBottomWidth: 0
+        borderBottomWidth: 0,
       },
       tableRow: {
-        margin: "auto",
-        flexDirection: "row"
+        margin: 'auto',
+        flexDirection: 'row',
       },
       tableCol: {
-        width: "25%",
-        borderStyle: "solid",
+        width: '25%',
+        borderStyle: 'solid',
         borderWidth: 1,
         borderLeftWidth: 0,
-        borderTopWidth: 0
+        borderTopWidth: 0,
       },
       tableCell: {
-        margin: "auto",
+        margin: 'auto',
         marginTop: 5,
-        fontSize: 20
-      }
+        fontSize: 20,
+      },
     });
 
     return (
@@ -125,11 +124,9 @@ class TabelaDados extends Component {
             </View>
           ))}
         </View>
-      </div >
+      </div>
     );
   }
 }
-
-
 
 export default TabelaDados;
