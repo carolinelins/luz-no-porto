@@ -42,39 +42,38 @@ class GraficoRateio extends Component {
                 enabled: false,
               },
 
-              //EXEMPLO DINAMICO - [AGUARDANDO REQUISICAO DO CONSUMO POR EMPRESAS - UTILIZAMOS EQUIPAMENTO DE EXEMPLO DINAMICO]
-              xaxis: {
-                categories: equipamentos.map((value) => value.nome),
-              },
+              //EXEMPLO DINAMICO - FUNCIONANDO -[AGUARDANDO REQUISICAO DO CONSUMO POR EMPRESAS - UTILIZAMOS EQUIPAMENTO DE EXEMPLO DINAMICO]
+              // xaxis: {
+              //   categories: equipamentos.map((value) => value.nome),
+              // },
 
               //EXEMPLO ESTATICO - FUNCIONANDO
-              // xaxis: {
-              //   categories: [
-              //     'NGPD',
-              //     'Cesar',
-              //     'For Solutions',
-              //     'G3',
-              //     'Fast',
-              //     'Fontech',
-              //     'Belweb',
-              //   ],
-              // },
-            }}
-            // EXEMPLO DINAMICO: [AGUARDANDO REQUISICAO]
-            series={[
-              {
-                name: 'Consumo kWh',
-                data: equipamentos.map((value) => value.id),
+              xaxis: {
+                categories: [
+                  'NGPD',
+                  'Cesar',
+                  'For Solutions',
+                  'G3',
+                  'Fast',
+                  'Fontech',
+                  'Belweb',
+                ],
               },
-            ]}
-            //EXEMPLO ESTATICO
+            }}
+            // EXEMPLO DINAMICO - FUNCIONANDO [AGUARDANDO REQUISICAO]
             // series={[
             //   {
             //     name: 'Consumo kWh',
-            //     data: [23480, 16390, 14480, 14101, 12280, 8790, 6013],
+            //     data: equipamentos.map((value) => value.id),
             //   },
             // ]}
-
+            // EXEMPLO ESTATICO - FUNCIONANDO
+            series={[
+              {
+                name: 'Consumo kWh',
+                data: [23480, 16390, 14480, 14101, 12280, 8790, 6013],
+              },
+            ]}
             // labels={equipamentos.map((value)=>value.nome)}
             type="bar"
             height={350}

@@ -50,11 +50,11 @@ class GraficoConsumo extends Component {
               //labels: equipamentos.map((value) => value.name),
               xaxis: {
                 //EXEMPLO EIXO X DINAMICO - FUNCIONANDO
-                categories: equipamentos.map((value) => value.nome),
+                // categories: equipamentos.map((value) => value.nome),
 
                 //EXEMPLO EIXO X ESTATICO - FUNCIONANDO
                 // CATEGORIES - SEMANAL
-                //categories: ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'],
+                categories: ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'],
               },
               yaxis: {
                 opposite: true,
@@ -66,11 +66,12 @@ class GraficoConsumo extends Component {
             series={[
               {
                 //EXEMPLO DINAMICO - FUNCIONANDO
-                name: equipamentos.map((value) => value.nome),
-                data: equipamentos.map((value) => value.id),
+                // name: equipamentos.map((value) => value.nome),
+                // data: equipamentos.map((value) => value.id),
+
                 //EXEMPLO ESTATICO - FUNCIONANDO
-                //name: 'Consumo kWh',
-                //data: [183480, 163290, 145480, 194101, 212280, 87990, 62013],
+                name: 'Consumo kWh',
+                data: [183480, 163290, 145480, 194101, 212280, 87990, 62013],
               },
             ]}
             type="area"
