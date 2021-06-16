@@ -63,9 +63,7 @@ export default function Dados() {
             <Grid container>
               <FiltrosDados
                 className="col-sm-4"
-                dataInicio={dataInicio}
                 setDataInicio={setDataInicio}
-                dataFim={dataFim}
                 setDataFim={setDataFim}
               />
               <TabelaDados

@@ -2,12 +2,15 @@ import React, { Component } from 'react';
 import Api from '../../../api';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/js/dist/dropdown';
+import { Button } from 'react-bootstrap'
 
 class FiltrosDados extends Component {
   state = {
     locatarios: [],
     tiposEquipamentos: [],
     localizacaoSalas: [],
+    inputDataInicio: '2020-05-14',
+    inputDataFim: '2020-05-15'
   };
 
   async componentDidMount() {
@@ -22,7 +25,22 @@ class FiltrosDados extends Component {
 
   render() {
     const { locatarios, tiposEquipamentos, localizacaoSalas } = this.state;
-    const { dataInicio, setDataInicio, dataFim, setDataFim } = this.props;
+    const { setDataInicio, setDataFim } = this.props;
+
+    function mudarIntervaloDatas(dataInicio, dataFim) {
+      if (dataInicio > dataFim) {
+        return alert("A data inicial deve ser anterior à final.")
+      }
+
+      const fim = new Date(dataFim)
+      const inicio = new Date(dataInicio)
+      if (fim - inicio > 2592000000) {
+        return alert("O intervalo entre as datas não deve ser superior a 30 dias!")
+      }
+
+      setDataInicio(dataInicio)
+      setDataFim(dataFim)
+    }
 
     return (
       <div className="pl-5 pt-4">
@@ -33,8 +51,8 @@ class FiltrosDados extends Component {
             </div>
             <input
               type="date"
-              value={dataInicio}
-              onChange={(evt) => setDataInicio(evt.target.value)}
+              value={this.state.inputDataInicio}
+              onChange={(evt) => this.setState({ inputDataInicio: evt.target.value })}
               className="form-control"
             ></input>
           </div>
@@ -44,11 +62,12 @@ class FiltrosDados extends Component {
             </div>
             <input
               type="date"
-              value={dataFim}
-              onChange={(evt) => setDataFim(evt.target.value)}
+              value={this.state.inputDataFim}
+              onChange={(evt) => this.setState({ inputDataFim: evt.target.value })}
               className="form-control"
             ></input>
           </div>
+          <Button variant="primary" onClick={() => mudarIntervaloDatas(this.state.inputDataInicio, this.state.inputDataFim)}>Gerar</Button>
         </div>
 
         {/* <div className="pt-4"> */}
