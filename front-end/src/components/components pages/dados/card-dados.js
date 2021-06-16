@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import api from '../../../api';
 import Grid from '@material-ui/core/Grid';
+import EcoIcon from '@material-ui/icons/Eco';
+import FlashOnIcon from '@material-ui/icons/FlashOn';
+import TrendingDownIcon from '@material-ui/icons/TrendingDown';
 // import Moment from 'moment';
 // import { Card, CardTitle, CardText, CardDeck, CardBody } from 'reactstrap';
 
@@ -80,60 +83,33 @@ class Card1 extends Component {
   render() {
     return (
       <Grid container>
-        <div className="card bg-light col-sm-4 m-3 text-dark ">
-          <p>Último Consumo:</p>
-          <p>{this.state.ultimoConsumoTotal}</p>
+        <div className="card bg-light col-sm m-4 text-warning">
+          <FlashOnIcon
+            style={{ fontSize: 50, position: 'relative', top: '30%' }}
+          />
+          <div style={{ position: 'relative', left: '30%', bottom: '20%' }}>
+            <p>Último Consumo:</p>
+            <p>{this.state.ultimoConsumoTotal}</p>
+          </div>
         </div>
-        <div className="card bg-light col-sm-4 m-3 text-dark ">
-          <p>{this.state.status} de Consumo</p>
-          <p>{this.state.reducaoConsumo}%</p>
+        <div className="card bg-light col-sm m-4 text-info">
+          <TrendingDownIcon
+            style={{ fontSize: 50, position: 'relative', top: '30%' }}
+          />
+          <div style={{ position: 'relative', left: '30%', bottom: '20%' }}>
+            <p>{this.state.status} de Consumo</p>
+            <p>{this.state.reducaoConsumo}%</p>
+          </div>
         </div>
-        <div className="card bg-light col-sm-3 m-3 text-dark ">
-          <p>Redução de CO2</p>
-          <p>---- t/C02</p>
+        <div className="card bg-light col-sm m-4 text-success">
+          <EcoIcon style={{ fontSize: 50, position: 'relative', top: '30%' }} />
+          <div style={{ position: 'relative', left: '30%', bottom: '20%' }}>
+            <p>Redução de CO2</p>
+            <p>---- t/C02</p>
+          </div>
         </div>
       </Grid>
-      // <div className="card bg-light text-dark m-3">
-      // <div id="chart" className="card-body">
     );
   }
 }
 export default Card1;
-
-// const Card1 = (props) => {
-//   return (
-//     // <div className="card bg-light text-dark m-3">
-//     // <div id="chart" className="card-body">
-//     <CardDeck>
-//       {/* <Card style={{ width: '20rem' }}> */}
-//       <Card className="card bg-light text-dark m-3">
-//         <CardBody>
-//           <CardTitle tag="h5" style={{ textAlign: 'center' }}>
-//             Consumo Total
-//           </CardTitle>
-//           <CardText>5.687kWh</CardText>
-//         </CardBody>
-//       </Card>
-//       {/* <Card style={{ width: '20rem', height: '8rem' }}> */}
-//       <Card className="card bg-light text-dark m-3">
-//         <CardBody>
-//           <CardTitle tag="h5" style={{ textAlign: 'center' }}>
-//             Redução de Consumo
-//           </CardTitle>
-//           <CardText>1245kWh</CardText>
-//         </CardBody>
-//       </Card>
-//       {/* <Card style={{ width: '20rem' }}> */}
-//       <Card className="card bg-light text-dark m-3">
-//         <CardBody>
-//           <CardTitle tag="h5" style={{ textAlign: 'center' }}>
-//             Redução de Emissões
-//           </CardTitle>
-//           <CardText>----t/CO2</CardText>
-//         </CardBody>
-//       </Card>
-//     </CardDeck>
-//   );
-// };
-
-// export default Card1;

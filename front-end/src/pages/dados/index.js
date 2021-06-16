@@ -55,7 +55,6 @@ export default function Dados() {
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
-          <h2>Dados Energeticos</h2>
           <Grid container>
             <Card1 className="col-sm-12" />
           </Grid>
