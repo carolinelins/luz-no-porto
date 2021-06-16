@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import api from '../../../api';
 import Grid from '@material-ui/core/Grid';
+import EcoIcon from '@material-ui/icons/Eco';
+import FlashOnIcon from '@material-ui/icons/FlashOn';
+import TrendingDownIcon from '@material-ui/icons/TrendingDown';
 // import Moment from 'moment';
 // import { Card, CardTitle, CardText, CardDeck, CardBody } from 'reactstrap';
 
@@ -80,17 +83,26 @@ class Card1 extends Component {
   render() {
     return (
       <Grid container>
-        <div className="card bg-light col-sm-4 m-3 text-dark ">
+        <div className="card bg-light col-sm-3 m-3 text-dark ">
+        <FlashOnIcon style={{ fontSize: 50,position:'relative', top:'30%' }}/>
+        <div style={{position:'relative',left:'30%',bottom:'20%'}}>
           <p>Último Consumo:</p>
           <p>{this.state.ultimoConsumoTotal}</p>
         </div>
-        <div className="card bg-light col-sm-4 m-3 text-dark ">
+        </div>
+        <div className="card bg-light col-sm-3 m-3 text-dark ">
+        <TrendingDownIcon style={{ fontSize: 50,position:'relative', top:'30%' }}/>
+        <div style={{position:'relative',left:'30%',bottom:'20%'}}>
           <p>{this.state.status} de Consumo</p>
           <p>{this.state.reducaoConsumo}%</p>
         </div>
+        </div>
         <div className="card bg-light col-sm-3 m-3 text-dark ">
+        <EcoIcon style={{ fontSize: 50,position:'relative', top:'30%' }}/>
+        <div style={{position:'relative',left:'30%',bottom:'20%'}}>
           <p>Redução de CO2</p>
           <p>---- t/C02</p>
+        </div>
         </div>
       </Grid>
       // <div className="card bg-light text-dark m-3">
