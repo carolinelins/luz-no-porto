@@ -48,7 +48,7 @@ function Periodo() {
             ></input>
           </div>
         </div>
-        <div className="pt-3">
+        <div className="pt-3 pb-3">
           <Button
             variant="primary"
             onClick={() => mudarIntervaloDatas(inputDataInicio, inputDataFim)}

@@ -1,20 +1,20 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
-export const FiltrosContext = React.createContext({})
+export const FiltrosContext = React.createContext({});
 
 export const FiltrosProvider = (props) => {
-    const [ filtros, setFiltros ] = useState({
-        sala: '',
-        dataInicio: '2020-05-14',
-        dataFim: '2020-05-15',
-        medicoes: []
-    }) 
+  const [filtros, setFiltros] = useState({
+    sala: '',
+    dataInicio: '2021-05-01',
+    dataFim: '2021-05-31',
+    medicoes: [],
+  });
 
-    return (
-        <FiltrosContext.Provider value={{ filtros, setFiltros }}>
-            {props.children}
-        </FiltrosContext.Provider>
-    )
-}
+  return (
+    <FiltrosContext.Provider value={{ filtros, setFiltros }}>
+      {props.children}
+    </FiltrosContext.Provider>
+  );
+};
 
-export const useFiltros = () => React.useContext(FiltrosContext)
+export const useFiltros = () => React.useContext(FiltrosContext);

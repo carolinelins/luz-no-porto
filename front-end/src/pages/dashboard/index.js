@@ -12,7 +12,8 @@ import MenuAdmin from '../../components/menu-admin';
 import Footer from '../../components/footer-admin';
 import GraficoConsumo from '../../components/components pages/consumo/graficoConsumo';
 import GraficoRateio from '../../components/components pages/consumo/graficoRateio';
-import Card1 from '../../components/components pages/dados/card-dados';
+// import Card1 from '../../components/components pages/dados/card-dados';
+import Card2 from '../../components/components pages/dashboard/card-dashboard';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -59,8 +60,8 @@ export default function Dashboard() {
           <GraficoRateio />
           </div> */}
           <Grid container>
-            <GraficoRateio className="col-sm-10 m-3 p-4" />
-            <Card1 className="col-sm-2 m-3 p-4" />
+            <GraficoRateio className="col-sm-8" />
+            <Card2 className="col-sm-4" />
           </Grid>
           {/* <div>
           <Card1 />

@@ -45,8 +45,8 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Dados() {
   const classes = useStyles();
-  const [dataInicio, setDataInicio] = useState('2020-05-14');
-  const [dataFim, setDataFim] = useState('2020-05-15');
+  const [dataInicio, setDataInicio] = useState('2021-05-01');
+  const [dataFim, setDataFim] = useState('2021-05-31');
 
   return (
     <div className={classes.root}>
@@ -61,12 +61,12 @@ export default function Dados() {
           <div className="card bg-light text-dark m-3">
             <Grid container>
               <FiltrosDados
-                className="col-sm-4"
+                className="col-sm text-center"
                 setDataInicio={setDataInicio}
                 setDataFim={setDataFim}
               />
               <TabelaDados
-                className="col-sm-8"
+                className="col-sm text-center"
                 dataInicio={dataInicio}
                 dataFim={dataFim}
               />

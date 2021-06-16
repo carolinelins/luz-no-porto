@@ -9,8 +9,8 @@ class FiltrosDados extends Component {
     locatarios: [],
     tiposEquipamentos: [],
     localizacaoSalas: [],
-    inputDataInicio: '2020-05-14',
-    inputDataFim: '2020-05-15',
+    inputDataInicio: '2021-05-01',
+    inputDataFim: '2021-05-31',
   };
 
   async componentDidMount() {
@@ -118,17 +118,19 @@ class FiltrosDados extends Component {
               className="form-control"
             ></input>
           </div>
-          <Button
-            variant="primary"
-            onClick={() =>
-              mudarIntervaloDatas(
-                this.state.inputDataInicio,
-                this.state.inputDataFim,
-              )
-            }
-          >
-            Consultar
-          </Button>
+          <div className="pt-3 pb-3">
+            <Button
+              variant="primary"
+              onClick={() =>
+                mudarIntervaloDatas(
+                  this.state.inputDataInicio,
+                  this.state.inputDataFim,
+                )
+              }
+            >
+              Consultar
+            </Button>
+          </div>
         </div>
       </div>
     );

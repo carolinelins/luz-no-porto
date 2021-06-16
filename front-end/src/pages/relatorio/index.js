@@ -53,8 +53,8 @@ const useStyles = makeStyles((theme) => ({
 export default function Relatorio() {
   const classes = useStyles();
   const { filtros } = useFiltros();
-  const [dataInicio, setDataInicio] = useState('2020-05-14');
-  const [dataFim, setDataFim] = useState('2020-05-15');
+  const [dataInicio, setDataInicio] = useState('2021-05-01');
+  const [dataFim, setDataFim] = useState('2021-05-31');
 
   useEffect(() => {
     if (filtros.dataInicio != dataInicio) {
