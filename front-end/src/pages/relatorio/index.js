@@ -74,16 +74,15 @@ export default function Relatorio() {
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
           <Grid container spacing={3}>
-            <h1>Gerar relatório</h1>
-
-            <div id="periodo">
-              <Periodo />
-            </div>
-
-            <div className="filtros">
-              <Salas />
-              <FiltroDispositivo />
-              <FiltroLocatario />
+            <div>
+              <div>
+                <FiltroLocatario />
+                <Salas />
+                <FiltroDispositivo />
+              </div>
+              <div id="periodo">
+                <Periodo />
+              </div>
             </div>
             <div id="pdf">
               <PDFViewer height="483px">
