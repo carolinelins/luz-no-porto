@@ -14,7 +14,7 @@ class FiltroLocatario extends Component {
     const { locatarios } = this.state;
 
     return (
-      <div className="empresa">
+      <div className="pl-5">
         <div className="input-group mb-3 pt-3">
           <div className="input-group-prepend">
             <label className="input-group-text pr-4">Empresa</label>

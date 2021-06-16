@@ -73,19 +73,23 @@ export default function Relatorio() {
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
-          <Grid container spacing={3}>
-            <div>
+          <Grid container>
+            <div className="card bg-light text-dark m-3 p-5">
+              <h5>Filtros</h5>
               <div>
                 <FiltroLocatario />
                 <Salas />
                 <FiltroDispositivo />
               </div>
-              <div id="periodo">
+              <div className="pt-5">
+                <h5>Período</h5>
                 <Periodo />
               </div>
             </div>
-            <div id="pdf">
-              <PDFViewer height="483px">
+
+            <div id="pdf" className="card bg-light m-3 p-5">
+              <h5>Visualização</h5>
+              <PDFViewer height="483px" className="m-3">
                 <MyDocument
                   sala={filtros.sala}
                   dataInicio={dataInicio}

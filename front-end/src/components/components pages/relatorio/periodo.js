@@ -24,7 +24,7 @@ function Periodo() {
   }
 
   return (
-    <div className="pl-5 pt-4">
+    <div className="pl-5">
       <div className="pt-3">
         <div className="input-group mb-3 pt-3">
           <div className="input-group-prepend">
@@ -48,12 +48,14 @@ function Periodo() {
             ></input>
           </div>
         </div>
-        <Button
-          variant="primary"
-          onClick={() => mudarIntervaloDatas(inputDataInicio, inputDataFim)}
-        >
-          Gerar Relatório
-        </Button>
+        <div className="pt-3">
+          <Button
+            variant="primary"
+            onClick={() => mudarIntervaloDatas(inputDataInicio, inputDataFim)}
+          >
+            Gerar Relatório
+          </Button>
+        </div>
       </div>
     </div>
   );
